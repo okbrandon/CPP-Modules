@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:13:50 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/12 20:24:10 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:50:10 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,17 @@
 int	main(void)
 {
 	PhoneBook	phoneBook;
-	Contact		contact;
+	std::string	input;
 
-	contact.setLastName("Soubaigne");
-	contact.setNickname("bsoubaig");
-	contact.setPhoneNumber("0000000000");
-	contact.setDarkestSecret("i hate men");
-
-	for (int i = 0; i < 8; i++)
+	std::cout << "---\nWelcome to your PhoneBook!\n---" << std::endl;
+	while (std::cin >> input && input.compare("EXIT") != 0)
 	{
-		std::string	firstName = "Brandon #";
-		firstName += std::to_string(i);
-		contact.setFirstName(firstName);
-		phoneBook.addContact(contact);
+		std::cout << "[debug] input=" << input << std::endl;
+		if (!input.compare("ADD"))
+		{
+			phoneBook.addContactPrompt();
+		}
 	}
-	phoneBook.display(0);
+	std::cout << "---\nSeen you soon, bye!\n---" << std::endl;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:56:17 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/12 20:12:41 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/03/12 20:40:45 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class	PhoneBook {
 		~PhoneBook(void);
 
 		void	addContact(Contact contact);
+		void	addContactPrompt(void);
 		void	display(int i);
 
 };
