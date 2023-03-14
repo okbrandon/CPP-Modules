@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:13:50 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/12 20:50:10 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/03/13 10:07:37 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main(void)
 	std::string	input;
 
 	std::cout << "---\nWelcome to your PhoneBook!\n---" << std::endl;
-	while (std::cin >> input && input.compare("EXIT") != 0)
+	while (input != "EXIT")
 	{
-		std::cout << "[debug] input=" << input << std::endl;
+		std::getline(std::cin, input);
 		if (!input.compare("ADD"))
 		{
 			phoneBook.addContactPrompt();
