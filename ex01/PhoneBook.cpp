@@ -6,94 +6,152 @@
 /*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:04:46 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/13 10:56:09 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:50:54 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+/**
+ * @brief Construct a new Phone Book:: Phone Book object
+ */
 PhoneBook::PhoneBook(void)
 {
 	this->_i = 0;
 }
 
+/**
+ * @brief Destroy the Phone Book:: Phone Book object
+ */
 PhoneBook::~PhoneBook(void) {}
 
+/**
+ * @brief Ask input with a specific prompt
+ * 
+ * @param prompt				- What you want from the user 
+ * @return std::string 			- Returned input if valid
+ */
+std::string	linePrompt(std::string prompt)
+{
+	std::string	input;
+	std::cout << "   " << prompt << ": ";
+	while (std::getline(std::cin, input))
+	{
+		if (!input.empty()) break ;
+		if (!std::cin.eof()) std::cout << "   " << prompt << ": ";
+	}
+	return (input);
+}
+
+/**
+ * @brief Add a Contact object to the contact list
+ * 
+ * @param contact 				- The contact to add
+ */
 void	PhoneBook::addContact(Contact contact)
 {
 	if (this->_i >= 8)
-	{
-		std::cout << C_RESET << C_RED << C_BOLD << "Overwriting contact '" << \
-			C_RESET << this->_contacts[0].getNickname() << C_RED << C_BOLD << \
-			"' with '" << C_RESET << contact.getNickname() << C_RED << C_BOLD << \
-			"'..." << C_RESET << std::endl;
 		this->_i = 0;
-	}
 	this->_contacts[this->_i++] = contact;
 }
 
+/**
+ * @brief Ask the user, data about the new user using prompts
+ * It'll automatically add the new contact to the contact list at the end
+ */
 void	PhoneBook::addContactPrompt(void)
 {
 	Contact		contact;
-	std::string	input;
 
 	std::cout << "Let's add a new contact. It'll be contact #" \
-			<< std::to_string(this->_i % 8) << std::endl;
+			<< std::to_string((this->_i % 8)) << std::endl;
+	if (this->_i >= 8)
+		std::cout << C_ERROR << "Your new contact will overwrite '" << \
+			this->_contacts[0].getNickname() << "'..." << C_RESET << std::endl;
 	/* Asking for the first name */
-	std::cout << "   First name: ";
-	while (std::getline(std::cin, input))
-	{
-		if (!input.empty()) break ;
-		if (!std::cin.eof()) std::cout << "   First name: ";
-	}
-	contact.setFirstName(input);
-
+	contact.setFirstName(linePrompt("First name"));
 	/* Asking for the last name */
-	std::cout << "   Last name: ";
-	while (std::getline(std::cin, input))
-	{
-		if (!input.empty()) break ;
-		if (!std::cin.eof()) std::cout << "   Last name: ";
-	}
-	contact.setLastName(input);
-
+	contact.setLastName(linePrompt("Last name"));
 	/* Asking for the nickname */
-	std::cout << "   Nickname: ";
-	while (std::getline(std::cin, input))
-	{
-		if (!input.empty()) break ;
-		if (!std::cin.eof()) std::cout << "   Nickname: ";
-	}
-	contact.setNickname(input);
-
+	contact.setNickname(linePrompt("Nickname"));
 	/* Asking for the phone number */
-	std::cout << "   Phone number: ";
-	while (std::getline(std::cin, input))
-	{
-		if (!input.empty()) break ;
-		if (!std::cin.eof()) std::cout << "   Phone number: ";
-	}
-	contact.setPhoneNumber(input);
-
+	contact.setPhoneNumber(linePrompt("Phone number"));
 	/* Asking for the darkest secret */
-	std::cout << "   Darkest secret: ";
-	while (std::getline(std::cin, input))
-	{
-		if (!input.empty()) break ;
-		if (!std::cin.eof()) std::cout << "   Darkest secret: ";
-	}
-	contact.setDarkestSecret(input);
-
+	contact.setDarkestSecret(linePrompt("Darkest secret"));
+	/* Adding the contact */
 	this->addContact(contact);
-	std::cout << "New contact made! Added '" << contact.getNickname() << "'..." << std::endl;
+	std::cout << C_OK << "New contact made! Added '" << C_RESET << \
+		contact.getNickname() << C_OK << "'..." << C_RESET << std::endl;
 }
 
-void	PhoneBook::display(int i)
+/**
+ * @brief Ask the user which contact to display
+ * It'll first display all the existing contacts
+ */
+void	PhoneBook::searchPrompt(void)
 {
-	if (i < 0 || i >= 8)
+	int			id;
+	std::string	input;
+
+	PhoneBook::displayContacts();
+	std::cout << "Alright, let's search a contact." << std::endl;
+	/* Asking the user which ID to display */
+	input = linePrompt("Contact ID");
+	for (int i = 0; i < (int) input.length(); i++)
 	{
-		std::cout << "Contact range from 0 to 8" << std::endl;
+		if (!std::isdigit(input.at(i)))
+		{
+			std::cout << C_ERROR << "This value is invalid." << C_RESET << std::endl;
+			PhoneBook::searchPrompt();
+			return ;
+		}
+	}
+	id = std::stoi(input);
+	if (id < 0 || id >= 8)
+	{
+		std::cout << C_ERROR << "You can only display contacts from index 0 to 8." \
+			<< C_RESET << std::endl;
 		return ;
 	}
-	this->_contacts[i].printData();
+	if (this->_contacts[id].getFirstName().empty())
+	{
+		std::cout << C_ERROR << "This contact is unknown, please refer to your list." \
+			<< C_RESET << std::endl;
+		return ;
+	}
+	this->_contacts[id].printData();
+}
+
+/**
+ * @brief Display all contacts registered
+ */
+void	PhoneBook::displayContacts(void)
+{
+	Contact	contact;
+	int		i;
+
+	i = 0;
+	std::cout << "o----------o----------o----------o----------o" << std::endl;
+	std::cout << "|" << StringUtils::fixWidth("index") << "|" \
+		<< StringUtils::fixWidth("first name") << "|" \
+		<< StringUtils::fixWidth("last name") << "|" \
+		<< StringUtils::fixWidth("nickname") << "|" \
+		<< std::endl;
+	std::cout << "o----------o----------o----------o----------o" << std::endl;
+	while (i < 8)
+	{
+		contact = this->_contacts[i];
+		if (contact.getFirstName().empty())
+		{
+			if (i == 0) std::cout << "|      You have no contacts registered.     |" << std::endl;
+			break ;
+		}
+		std::cout << "|" << StringUtils::fixWidth(std::to_string(i)) << "|" \
+			<< StringUtils::fixWidth(contact.getFirstName()) << "|" \
+			<< StringUtils::fixWidth(contact.getLastName()) << "|" \
+			<< StringUtils::fixWidth(contact.getNickname()) << "|" \
+			<< std::endl;
+		i++;
+	}
+	std::cout << "o----------o----------o----------o----------o" << std::endl;
 }

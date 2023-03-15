@@ -6,7 +6,7 @@
 #    By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 17:45:22 by bsoubaig          #+#    #+#              #
-#    Updated: 2023/03/12 20:15:20 by bsoubaig         ###   ########.fr        #
+#    Updated: 2023/03/15 12:55:00 by bsoubaig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ NAME			= phonebook
 SRC_DIR			= ./
 SRCS			= Contact.cpp \
 				  PhoneBook.cpp \
+				  StringUtils.cpp \
 				  Main.cpp
 
 OBJ_DIR			= ./objs/

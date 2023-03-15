@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:20:49 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/13 10:21:09 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/03/15 14:16:31 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class	Contact {
 
 	public:
 		Contact(void);
-		Contact(std::string firstName, std::string lastName, std::string nickname, \
-				std::string phoneNumber, std::string darkestSecret);
 		~Contact(void);
 
 		void		setFirstName(std::string firstName);
