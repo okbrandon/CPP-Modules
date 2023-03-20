@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:04:46 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/15 14:50:54 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:00:57 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,13 @@ std::string	linePrompt(std::string prompt)
 {
 	std::string	input;
 	std::cout << "   " << prompt << ": ";
-	while (std::getline(std::cin, input))
+	while (1)
 	{
+		if (!std::getline(std::cin, input)) {
+			std::cout << "NULL" << std::endl;
+			input = "NULL";
+			break ;
+		}
 		if (!input.empty()) break ;
 		if (!std::cin.eof()) std::cout << "   " << prompt << ": ";
 	}
@@ -97,6 +102,8 @@ void	PhoneBook::searchPrompt(void)
 	std::cout << "Alright, let's search a contact." << std::endl;
 	/* Asking the user which ID to display */
 	input = linePrompt("Contact ID");
+	if (input == "NULL")
+		return ;
 	for (int i = 0; i < (int) input.length(); i++)
 	{
 		if (!std::isdigit(input.at(i)))
