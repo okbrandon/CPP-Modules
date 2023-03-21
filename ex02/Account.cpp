@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:50:55 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/20 19:43:29 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:06:39 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,7 +163,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 }
 
 /**
- * @brief 
+ * @brief Function used to display the status of the current account
  */
 void	Account::displayStatus(void) const
 {
@@ -174,6 +174,9 @@ void	Account::displayStatus(void) const
 			<< "withdrawals:" << this->_nbWithdrawals << std::endl;
 }
 
+/**
+ * @brief Function used to display bank's informations
+ */
 void	Account::displayAccountsInfos(void)
 {
 	Account::_displayTimestamp();
