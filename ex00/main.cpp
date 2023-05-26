@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:32:59 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/05/26 09:46:32 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/05/26 11:12:57 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,7 @@ int	main(void)
 
 	std::cout << C_GREEN << "Killing Zombie object called 'Dumbass'..." << C_RESET << std::endl;
 	delete dumbass;
+
+	system("leaks BraiiiiiiinnnzzzZ");
 	return (0);
 }
