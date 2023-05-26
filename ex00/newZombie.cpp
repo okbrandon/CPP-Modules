@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsoubaig <bsoubaig@student.42nice.fr       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/26 09:09:41 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/05/26 09:24:45 by bsoubaig         ###   ########.fr       */
+/*   Created: 2023/05/26 09:27:35 by bsoubaig          #+#    #+#             */
+/*   Updated: 2023/05/26 09:28:12 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+Zombie	*newZombie(std::string name)
 {
-	this->_name = name;
-	std::cout << "Zombie object '" << this->_name << "' constructor called." << std::endl;
-}
-
-Zombie::~Zombie(void)
-{
-	std::cout << "Zombie object '" << this->_name << "' destructor called." << std::endl;
-}
-
-void	Zombie::announce(void)
-{
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	return (new Zombie(name));
 }
