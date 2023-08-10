@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:04:46 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/10 17:55:33 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/10 18:33:34 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,7 @@ void	PhoneBook::displayContacts(void)
 	std::ostringstream	oss;
 	Contact				contact;
 	int					i;
+	const char			originalFill = std::cout.fill();
 
 	i = 0;
 	std::cout << "o----------o----------o----------o----------o" << std::endl;
@@ -183,7 +184,7 @@ void	PhoneBook::displayContacts(void)
 			<< "|" << std::setw(10) << fixWidth(contact.getFirstName()) \
 			<< "|" << std::setw(10) << fixWidth(contact.getLastName()) \
 			<< "|" << std::setw(10) << fixWidth(contact.getNickname()) \
-			<< "|" << std::endl;
+			<< "|" << std::setfill(originalFill) << std::endl;
 		i++;
 	}
 	std::cout << "o----------o----------o----------o----------o" << std::endl;
