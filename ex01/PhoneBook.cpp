@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:04:46 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/20 17:00:57 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/10 17:55:33 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,24 @@ void	PhoneBook::searchPrompt(void)
 }
 
 /**
+ * @brief Utils method used to fix the width of a string.
+ * It'll add a dot a the end of the string if its length is
+ * greater than 10 caracters.
+ *
+ * @param str 					- The string to fix
+ * @return std::string 			- The fixed string
+ */
+std::string	fixWidth(std::string str)
+{
+	if ((int) str.length() > 10)
+	{
+		str = str.substr(0, 9);
+		str.push_back('.');
+	}
+	return (str);
+}
+
+/**
  * @brief Display all contacts registered
  */
 void	PhoneBook::displayContacts(void)
@@ -142,11 +160,12 @@ void	PhoneBook::displayContacts(void)
 
 	i = 0;
 	std::cout << "o----------o----------o----------o----------o" << std::endl;
-	std::cout << "|" << StringUtils::fixWidth("index") << "|" \
-		<< StringUtils::fixWidth("first name") << "|" \
-		<< StringUtils::fixWidth("last name") << "|" \
-		<< StringUtils::fixWidth("nickname") << "|" \
-		<< std::endl;
+	std::cout << std::setfill(' ') \
+			<< "|" << std::setw(10) << "index" \
+			<< "|" << std::setw(10) << "first name" \
+			<< "|" << std::setw(10) << "last name" \
+			<< "|" << std::setw(10) << "nickname" \
+			<< "|" << std::endl;
 	std::cout << "o----------o----------o----------o----------o" << std::endl;
 	while (i < 8)
 	{
@@ -156,12 +175,15 @@ void	PhoneBook::displayContacts(void)
 			if (i == 0) std::cout << "|      You have no contacts registered.     |" << std::endl;
 			break ;
 		}
+		oss.str("");
+		oss.clear();
 		oss << i;
-		std::cout << "|" << StringUtils::fixWidth(oss.str()) << "|" \
-			<< StringUtils::fixWidth(contact.getFirstName()) << "|" \
-			<< StringUtils::fixWidth(contact.getLastName()) << "|" \
-			<< StringUtils::fixWidth(contact.getNickname()) << "|" \
-			<< std::endl;
+		std::cout << std::setfill(' ') \
+			<< "|" << std::setw(10) << fixWidth(oss.str()) \
+			<< "|" << std::setw(10) << fixWidth(contact.getFirstName()) \
+			<< "|" << std::setw(10) << fixWidth(contact.getLastName()) \
+			<< "|" << std::setw(10) << fixWidth(contact.getNickname()) \
+			<< "|" << std::endl;
 		i++;
 	}
 	std::cout << "o----------o----------o----------o----------o" << std::endl;

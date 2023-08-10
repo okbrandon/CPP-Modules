@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:56:17 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/15 14:47:34 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/10 17:54:04 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define PHONE_BOOK_HPP
 
 # include "Contact.hpp"
-# include "StringUtils.hpp"
 # include <sstream>
+# include <iomanip>
 
 # define C_RESET 	"\x1b[0m"
 # define C_ERROR	"\x1b[31m\x1b[1m"
