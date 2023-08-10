@@ -14,6 +14,7 @@
 # define STRING_UTILS_HPP
 
 # include <iostream>
+# include <cstring>
 
 class	StringUtils {
 

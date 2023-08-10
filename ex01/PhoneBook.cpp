@@ -27,8 +27,8 @@ PhoneBook::~PhoneBook(void) {}
 
 /**
  * @brief Ask input with a specific prompt
- * 
- * @param prompt				- What you want from the user 
+ *
+ * @param prompt				- What you want from the user
  * @return std::string 			- Returned input if valid
  */
 std::string	linePrompt(std::string prompt)
@@ -50,7 +50,7 @@ std::string	linePrompt(std::string prompt)
 
 /**
  * @brief Add a Contact object to the contact list
- * 
+ *
  * @param contact 				- The contact to add
  */
 void	PhoneBook::addContact(Contact contact)
@@ -66,10 +66,12 @@ void	PhoneBook::addContact(Contact contact)
  */
 void	PhoneBook::addContactPrompt(void)
 {
-	Contact		contact;
+	std::ostringstream	oss;
+	Contact				contact;
 
+	oss << this->_i % 8;
 	std::cout << "Let's add a new contact. It'll be contact #" \
-			<< std::to_string((this->_i % 8)) << std::endl;
+			<< oss.str() << std::endl;
 	if (this->_i >= 8)
 		std::cout << C_ERROR << "Your new contact will overwrite '" << \
 			this->_contacts[0].getNickname() << "'..." << C_RESET << std::endl;
@@ -113,7 +115,7 @@ void	PhoneBook::searchPrompt(void)
 			return ;
 		}
 	}
-	id = std::stoi(input);
+	std::istringstream(input) >> id;
 	if (id < 0 || id >= 8)
 	{
 		std::cout << C_ERROR << "You can only display contacts from index 0 to 8." \
@@ -134,8 +136,9 @@ void	PhoneBook::searchPrompt(void)
  */
 void	PhoneBook::displayContacts(void)
 {
-	Contact	contact;
-	int		i;
+	std::ostringstream	oss;
+	Contact				contact;
+	int					i;
 
 	i = 0;
 	std::cout << "o----------o----------o----------o----------o" << std::endl;
@@ -153,7 +156,8 @@ void	PhoneBook::displayContacts(void)
 			if (i == 0) std::cout << "|      You have no contacts registered.     |" << std::endl;
 			break ;
 		}
-		std::cout << "|" << StringUtils::fixWidth(std::to_string(i)) << "|" \
+		oss << i;
+		std::cout << "|" << StringUtils::fixWidth(oss.str()) << "|" \
 			<< StringUtils::fixWidth(contact.getFirstName()) << "|" \
 			<< StringUtils::fixWidth(contact.getLastName()) << "|" \
 			<< StringUtils::fixWidth(contact.getNickname()) << "|" \

@@ -29,6 +29,6 @@ int	main(void)
 		else if (!input.compare("SEARCH")) phoneBook.searchPrompt();
 		else if (!input.compare("EXIT")) break ;
 	}
-	std::cout << "---\nSeen you soon, bye!\n---" << std::endl;
+	std::cout << "---\nSee you soon, bye!\n---" << std::endl;
 	return (0);
 }

@@ -15,6 +15,7 @@
 
 # include "Contact.hpp"
 # include "StringUtils.hpp"
+# include <sstream>
 
 # define C_RESET 	"\x1b[0m"
 # define C_ERROR	"\x1b[31m\x1b[1m"
@@ -26,7 +27,7 @@ class	PhoneBook {
 		Contact	_contacts[8];
 		int		_i;
 
-	public:	
+	public:
 		PhoneBook(void);
 		~PhoneBook(void);
 

@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <cstring>
 
 class	Contact {
 
@@ -22,7 +23,7 @@ class	Contact {
 		std::string _lastName;
 		std::string _nickname;
 		std::string _phoneNumber;
-		std::string _darkestSecret;	
+		std::string _darkestSecret;
 
 	public:
 		Contact(void);

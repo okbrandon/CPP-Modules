@@ -15,7 +15,7 @@
 /**
  * @brief Utils method used to add missing spaces to
  * complete a string. It'll add X missing spaces before your string.
- * 
+ *
  * @param str 					- The string to complete
  * @return std::string 			- The string completed
  */
@@ -37,7 +37,7 @@ std::string	StringUtils::addSpaces(std::string str)
  * @brief Utils method used to fix the width of a string.
  * It'll add a dot a the end of the string if its length is
  * greater than 10 caracters and also add missing spaces before.
- * 
+ *
  * @param str 					- The string to fix
  * @return std::string 			- The fixed string
  */
