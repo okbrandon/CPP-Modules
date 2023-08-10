@@ -13,6 +13,7 @@
 #include "Account.hpp"
 #include <iostream>
 #include <iomanip>
+#include <ctime>
 
 /* Global variables initialization */
 int	Account::_nbAccounts = 0;
@@ -22,7 +23,7 @@ int	Account::_totalNbWithdrawals = 0;
 
 /**
  * @brief Construct a new Account:: Account object
- * 
+ *
  * @param initial_deposit				- Initial cash amount in account
  */
 Account::Account(int initial_deposit)
@@ -53,7 +54,7 @@ Account::~Account(void)
 
 /**
  * @brief Function used to get how many accounts are registered
- * 
+ *
  * @return int				- Registered accounts count
  */
 int	Account::getNbAccounts(void)
@@ -63,7 +64,7 @@ int	Account::getNbAccounts(void)
 
 /**
  * @brief Function used to get how much money does the bank have in total
- * 
+ *
  * @return int				- Total amount of money
  */
 int	Account::getTotalAmount(void)
@@ -73,7 +74,7 @@ int	Account::getTotalAmount(void)
 
 /**
  * @brief Function used to get how many deposits were made
- * 
+ *
  * @return int				- Total amount of deposits
  */
 int	Account::getNbDeposits(void)
@@ -83,7 +84,7 @@ int	Account::getNbDeposits(void)
 
 /**
  * @brief Function used to get how many withdrawals were made
- * 
+ *
  * @return int				- Total amount of withdrawals
  */
 int	Account::getNbWithdrawals(void)
@@ -93,7 +94,7 @@ int	Account::getNbWithdrawals(void)
 
 /**
  * @brief Function used to get current account's money amount
- * 
+ *
  * @return int				- Total amount of money
  */
 int	Account::checkAmount(void) const
@@ -106,15 +107,23 @@ int	Account::checkAmount(void) const
  */
 void	Account::_displayTimestamp(void)
 {
-	std::time_t	time = std::time(nullptr);
-	std::tm	localTime = *std::localtime(&time);
+	time_t	time = std::time(0);
+	tm		*localtime = std::localtime(&time);
 
-	std::cout << std::put_time(&localTime, "[%Y%m%d_%H%M%S] ");
+	std::cout << std::setfill('0') << "["
+			<< 1900 + localtime->tm_year
+			<< std::setw(2) << 1 + localtime->tm_mon
+			<< std::setw(2) << localtime->tm_mday
+			<< "_"
+			<< std::setw(2) << localtime->tm_hour
+			<< std::setw(2) << localtime->tm_min
+			<< std::setw(2) << localtime->tm_sec
+			<< std::setfill(' ') << "] ";
 }
 
 /**
  * @brief Function used to make a deposit of money
- * 
+ *
  * @param deposit				- Total amount to deposit
  */
 void	Account::makeDeposit(int deposit)
@@ -135,7 +144,7 @@ void	Account::makeDeposit(int deposit)
 
 /**
  * @brief Function used to make a withdrawal of money
- * 
+ *
  * @param withdrawal			- Total amount to withdraw
  * @return true					- If the account has enough funds
  * @return false 				- If the account doesn't have enought funds
