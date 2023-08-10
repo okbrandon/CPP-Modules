@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:50:55 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/21 12:06:39 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/10 18:04:56 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,9 @@ int	Account::checkAmount(void) const
  */
 void	Account::_displayTimestamp(void)
 {
-	time_t	time = std::time(0);
-	tm		*localtime = std::localtime(&time);
+	time_t		time = std::time(0);
+	tm			*localtime = std::localtime(&time);
+	const char	originalFill = std::cout.fill();
 
 	std::cout << std::setfill('0') << "["
 			<< 1900 + localtime->tm_year
@@ -118,7 +119,7 @@ void	Account::_displayTimestamp(void)
 			<< std::setw(2) << localtime->tm_hour
 			<< std::setw(2) << localtime->tm_min
 			<< std::setw(2) << localtime->tm_sec
-			<< std::setfill(' ') << "] ";
+			<< std::setfill(originalFill) << "] ";
 }
 
 /**
@@ -135,6 +136,7 @@ void	Account::makeDeposit(int deposit)
 
 	/* Editing variables */
 	Account::_totalNbDeposits++;
+	Account::_totalAmount += deposit;
 	this->_nbDeposits++;
 	this->_amount += deposit;
 
@@ -160,6 +162,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 	if (this->_amount >= withdrawal)
 	{
 		Account::_totalNbWithdrawals++;
+		Account::_totalAmount -= withdrawal;
 		this->_nbWithdrawals++;
 		this->_amount -= withdrawal;
 		std::cout << withdrawal << ";" \
