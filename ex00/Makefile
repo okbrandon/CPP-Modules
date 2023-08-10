@@ -29,8 +29,27 @@ OBJ_DIR			= ./objs/
 OBJS			= ${addprefix ${OBJ_DIR}, ${SRCS:.cpp=.o}}
 
 CC				= c++
-CFLAGS			= -std=c++98 -Wall -Wextra -Werror -arch x86_64 #-g -fsanitize=address
+CFLAGS			= -std=c++98 -Wall -Wextra -Werror
 RM				= rm -rf
+
+# Checking OS type
+UNAME_S := $(shell uname -s)
+
+ifneq ($(UNAME_S),Linux)
+ifneq ($(UNAME_S),Darwin)
+	$(error Unsupported OS $(UNAME_S))
+endif
+endif
+
+# Adding a specific flag for MacOS not Intel based
+ifeq ($(UNAME_S),Darwin)
+	CFLAGS += -arch x86_64
+endif
+
+# Debug compilation is launched
+ifdef DEBUG
+	CFLAGS += -fsanitize=address -g
+endif
 
 ${OBJ_DIR}%.o:	${SRC_DIR}%.cpp
 	@printf "${CLEAR}${RESET}${GREEN}»${RESET} [${PURPLE}${BOLD}${NAME}${RESET}]: Compiling ${GREEN}%s${RESET}...${GREY}" ${notdir $<}
@@ -47,6 +66,9 @@ ${OBJS}:		| ${OBJ_DIR}
 
 ${OBJ_DIR}:
 	@mkdir ${OBJ_DIR}
+
+debug:
+	@make DEBUG=1 re
 
 clean:
 	@${RM} ${OBJ_DIR}
