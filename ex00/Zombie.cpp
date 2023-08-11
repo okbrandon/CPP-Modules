@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.42nice.fr       +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:09:41 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/05/26 09:24:45 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:13:26 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 Zombie::Zombie(std::string name)
 {
 	this->_name = name;
-	std::cout << "Zombie object '" << this->_name << "' constructor called." << std::endl;
+	std::cout << C_GRN << "✅ Zombie object '" << this->_name << "' constructor called." << C_RESET << std::endl;
 }
 
 Zombie::~Zombie(void)
 {
-	std::cout << "Zombie object '" << this->_name << "' destructor called." << std::endl;
+	std::cout << C_RED << "💣 Zombie object '" << this->_name << "' destructor called." << C_RESET << std::endl;
 }
 
 void	Zombie::announce(void)

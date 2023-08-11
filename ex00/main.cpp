@@ -3,35 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.42nice.fr       +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:32:59 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/05/26 11:12:57 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:34:04 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-# define C_RESET 	"\x1b[0m"
-# define C_GREEN	"\x1b[32m\x1b[1m"
 
 Zombie	*newZombie(std::string name);
 void	randomChump(std::string name);
 
 int	main(void)
 {
-	std::cout << C_GREEN << "Initializing Zombie object called 'Dumbass' and announcing it..." << C_RESET << std::endl;
+	std::cout << C_GRY << "Calling newZombie named 'Dumbass'..." << C_RESET << std::endl;
 	// First test
 	Zombie	*dumbass = newZombie("Dumbass");
 	dumbass->announce();
 
-	std::cout << C_GREEN << "Initializing Zombie object called 'Pedro', announcing it and killing it..." << C_RESET << std::endl;
+	std::cout << C_GRY << "Calling randomChump named 'Pedro'..." << C_RESET << std::endl;
 	// Second test
 	randomChump("Pedro");
 
-	std::cout << C_GREEN << "Killing Zombie object called 'Dumbass'..." << C_RESET << std::endl;
+	std::cout << C_GRY << "Killing Zombie object called 'Dumbass'..." << C_RESET << std::endl;
 	delete dumbass;
-
-	system("leaks BraiiiiiiinnnzzzZ");
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.42nice.fr       +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:12:39 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/05/26 09:24:16 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/11 10:22:10 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 # define ZOMBIE_HPP
 
 # include <iostream>
+
+# define C_RESET 	"\x1b[0m"
+# define C_RED		"\x1b[31m\x1b[1m"
+# define C_GRY		"\x1b[90m\x1b[1m"
+# define C_GRN		"\x1b[32m\x1b[1m"
 
 class	Zombie {
 
