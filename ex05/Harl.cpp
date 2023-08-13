@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 19:59:46 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/13 12:00:39 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/13 12:10:01 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	Harl::complain(std::string level)
 	Harl	harl;
 	for (int i = 0; i < 4; i++)
 	{
-		if (level.compare(levels[i]))
+		if (levels[i] == level)
 		{
 			(harl.*matchLvl[i])();
 			return ;
