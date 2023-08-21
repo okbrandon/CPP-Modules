@@ -6,7 +6,7 @@
 #    By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 17:45:22 by bsoubaig          #+#    #+#              #
-#    Updated: 2023/08/21 16:24:59 by bsoubaig         ###   ########.fr        #
+#    Updated: 2023/08/21 16:43:10 by bsoubaig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ CLEAR			= \r\033[K
 NAME			= ex00
 
 SRC_DIR			= ./
-SRCS			= main.cpp \
+SRCS			= Fixed.cpp \
+				  main.cpp \
 
 OBJ_DIR			= ./objs/
 OBJS			= ${addprefix ${OBJ_DIR}, ${SRCS:.cpp=.o}}
