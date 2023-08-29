@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:29:49 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/24 18:24:23 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/29 11:54:08 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,23 @@
 
 Fixed::Fixed(void) {
 	this->_value = 0;
-	std::cout << C_GRN << "✅ Default constructor called." << C_RESET << std::endl;
 }
 
 Fixed::Fixed(const Fixed &fixed) {
-	std::cout << C_GRN << "✅ Copy constructor called." << C_RESET << std::endl;
 	*this = fixed;
 }
 
 Fixed::Fixed(const int number) {
 	this->_value = number << Fixed::_fractionalBits;
-	std::cout << C_GRN << "✅ Int constructor called." << C_RESET << std::endl;
 }
 
 Fixed::Fixed(const float number) {
 	this->_value = roundf(number * (1 << Fixed::_fractionalBits));
-	std::cout << C_GRN << "✅ Float constructor called." << C_RESET << std::endl;
 }
 
-Fixed::~Fixed(void) {
-	std::cout << C_RED << "💣 Destructor called." << C_RESET << std::endl;
-}
+Fixed::~Fixed(void) {}
 
 Fixed	&Fixed::operator=(const Fixed &fixed) {
-	std::cout << C_GRY << "🟰 Copy assignment operator called." << C_RESET << std::endl;
 	this->_value = fixed._value;
 	return (*this);
 }
@@ -66,24 +59,28 @@ bool	Fixed::operator!=(const Fixed &fixed) {
 	return (this->_value != fixed._value);
 }
 
-Fixed	&Fixed::operator+(const Fixed &fixed) {
-	this->_value += fixed._value;
-	return (*this);
+Fixed	Fixed::operator+(const Fixed &fixed) {
+	Fixed	temp;
+	temp._value = this->_value + fixed._value;
+	return (temp);
 }
 
-Fixed	&Fixed::operator-(const Fixed &fixed) {
-	this->_value -= fixed._value;
-	return (*this);
+Fixed	Fixed::operator-(const Fixed &fixed) {
+	Fixed	temp;
+	temp._value = this->_value - fixed._value;
+	return (temp);
 }
 
-Fixed	&Fixed::operator*(const Fixed &fixed) {
-	this->_value *= fixed._value;
-	return (*this);
+Fixed	Fixed::operator*(const Fixed &fixed) {
+	Fixed	temp;
+	temp._value = (this->_value * fixed._value / (1 << Fixed::_fractionalBits));
+	return (temp);
 }
 
-Fixed	&Fixed::operator/(const Fixed &fixed) {
-	this->_value /= fixed._value;
-	return (*this);
+Fixed	Fixed::operator/(const Fixed &fixed) {
+	Fixed	temp;
+	temp._value = (this->_value / fixed._value * (1 << Fixed::_fractionalBits));
+	return (temp);
 }
 
 Fixed	&Fixed::operator++(void) {
@@ -97,13 +94,47 @@ Fixed	Fixed::operator++(int) {
 	return (post);
 }
 
+Fixed	&Fixed::operator--(void) {
+	--this->_value;
+	return (*this);
+}
+
+Fixed 	Fixed::operator--(int) {
+	Fixed	post(*this);
+	--(*this);
+	return (post);
+}
+
+Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs) {
+	if (lhs < rhs)
+		return (lhs);
+	return (rhs);
+}
+
+const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs) {
+	if ((Fixed) lhs < (Fixed) rhs)
+		return (lhs);
+	return (rhs);
+}
+
+Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs) {
+	if (lhs < rhs)
+		return (rhs);
+	return (lhs);
+}
+
+const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs) {
+	if ((Fixed) lhs < (Fixed) rhs)
+		return (rhs);
+	return (lhs);
+}
+
 std::ostream	&operator<<(std::ostream &out, const Fixed &fixed) {
 	out << fixed.toFloat();
 	return (out);
 }
 
 int	Fixed::getRawBits(void) const {
-	std::cout << C_GRY << "🤙 getRawBits member function called." << C_RESET << std::endl;
 	return (this->_value);
 }
 
@@ -112,7 +143,7 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 float	Fixed::toFloat(void) const {
-	return ((float) this->_value / (float) (1 << Fixed::_fractionalBits));
+	return ((float) this->_value / (1 << Fixed::_fractionalBits));
 }
 
 int	Fixed::toInt(void) const {

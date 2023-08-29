@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:41:52 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/21 23:21:58 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/29 11:55:45 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,9 @@ int	main(void) {
 	std::cout << a << std::endl;
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
+
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max(a, b) << std::endl;
 	return (0);
 }
