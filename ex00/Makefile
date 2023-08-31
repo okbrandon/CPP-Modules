@@ -6,7 +6,7 @@
 #    By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 17:45:22 by bsoubaig          #+#    #+#              #
-#    Updated: 2023/08/31 09:20:27 by bsoubaig         ###   ########.fr        #
+#    Updated: 2023/08/31 10:25:44 by bsoubaig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ CLEAR			= \r\033[K
 NAME			= ex00
 
 SRC_DIR			= ./
-SRCS			= main.cpp \
+SRCS			= ClapTrap.cpp \
+				  main.cpp \
 
 OBJ_DIR			= ./objs/
 OBJS			= ${addprefix ${OBJ_DIR}, ${SRCS:.cpp=.o}}
