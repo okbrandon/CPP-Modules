@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 12:01:08 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/31 12:13:09 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:20:34 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 class ScavTrap : public ClapTrap {
 
 	private:
-		ScavTrap(void);
 
 	public:
+		ScavTrap(void);
 		ScavTrap(std::string name);
 		~ScavTrap(void);
 

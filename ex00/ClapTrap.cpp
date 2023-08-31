@@ -6,11 +6,19 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 09:25:42 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/31 10:31:36 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:22:32 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap(void) {
+	this->_name = "unidentified";
+	this->_hitPoints = 10;
+	this->_energyPoints = 10;
+	this->_attackDamage = 0;
+	std::cout << "✅ ClapTrap " << this->_name << " is born!" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name) {
 	this->_name = name;

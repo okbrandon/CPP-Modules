@@ -6,11 +6,18 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 12:15:11 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/31 13:58:49 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/31 15:22:10 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
+
+ScavTrap::ScavTrap(void) : ClapTrap("unidentified") {
+	this->_hitPoints = 100;
+	this->_energyPoints = 50;
+	this->_attackDamage = 20;
+	std::cout << "✅ ScavTrap " << this->_name << " is born!" << std::endl;
+}
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	this->_hitPoints = 100;
