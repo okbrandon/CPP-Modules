@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 09:21:50 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/31 10:36:44 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/08/31 12:11:30 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ class ClapTrap {
 		int			_hitPoints;
 		int			_energyPoints;
 		int			_attackDamage;
+
+		ClapTrap(void);
 
 	public:
 		ClapTrap(std::string name);
