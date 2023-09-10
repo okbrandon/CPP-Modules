@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:12:32 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/31 15:20:10 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/10 12:54:13 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ class FragTrap : public ClapTrap {
 	public:
 		FragTrap(void);
 		FragTrap(std::string name);
+		FragTrap(const FragTrap &fragTrap);
 		~FragTrap(void);
+
+		FragTrap	&operator=(const FragTrap &fragTrap);
 
 		void	highFivesGuys(void);
 

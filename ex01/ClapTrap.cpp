@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 09:25:42 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/31 15:21:49 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/10 12:55:29 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,21 @@ ClapTrap::ClapTrap(std::string name) {
 	std::cout << "✅ ClapTrap " << this->_name << " is born!" << std::endl;
 }
 
+ClapTrap::ClapTrap(const ClapTrap &clapTrap) {
+	*this = clapTrap;
+	std::cout << "✅ ClapTrap copy " << this->_name << " is born!" << std::endl;
+}
+
 ClapTrap::~ClapTrap(void) {
 	std::cout << "💣 ClapTrap " << this->_name << " was brutally killed." << std::endl;
+}
+
+ClapTrap	&ClapTrap::operator=(const ClapTrap &clapTrap) {
+	this->_name = clapTrap._name;
+	this->_hitPoints = clapTrap._hitPoints;
+	this->_energyPoints = clapTrap._energyPoints;
+	this->_attackDamage = clapTrap._attackDamage;
+	return (*this);
 }
 
 void	ClapTrap::attack(const std::string& target) {

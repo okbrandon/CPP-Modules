@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 12:15:11 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/31 15:18:30 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/10 12:53:12 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,21 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 	std::cout << "✅ ScavTrap " << this->_name << " is born!" << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &scavTrap) : ClapTrap(scavTrap) {
+	*this = scavTrap;
+	std::cout << "✅ ScavTrap copy " << this->_name << " is born!" << std::endl;
+}
+
 ScavTrap::~ScavTrap(void) {
 	std::cout << "💣 ScavTrap " << this->_name << " was brutally killed." << std::endl;
+}
+
+ScavTrap	&ScavTrap::operator=(const ScavTrap &scavTrap) {
+	this->_name = scavTrap._name;
+	this->_hitPoints = scavTrap._hitPoints;
+	this->_energyPoints = scavTrap._energyPoints;
+	this->_attackDamage = scavTrap._attackDamage;
+	return (*this);
 }
 
 void	ScavTrap::attack(const std::string& target) {
