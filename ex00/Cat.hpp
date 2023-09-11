@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 12:54:57 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/01 14:27:12 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:48:02 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ class Cat : public Animal {
 
 	public:
 		Cat(void);
+		Cat(const Cat &cat);
 		~Cat(void);
 
-		void	makeSound(void) const;
+		Cat	&operator=(const Cat &cat);
+
+		virtual void	makeSound(void) const;
 
 };
 

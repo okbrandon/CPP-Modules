@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 14:43:01 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/01 14:52:11 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:54:26 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,12 @@ class WrongCat : public WrongAnimal {
 
 	public:
 		WrongCat(void);
+		WrongCat(const WrongCat &wrongCat);
 		~WrongCat(void);
 
-		void	makeSound(void) const;
+		virtual WrongCat	&operator=(const WrongCat &wrongCat);
+
+		virtual void	makeSound(void) const;
 
 };
 

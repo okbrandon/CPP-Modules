@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 14:38:13 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/01 14:51:02 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:52:26 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,10 @@ class WrongAnimal {
 	public:
 		WrongAnimal(void);
 		WrongAnimal(std::string type);
+		WrongAnimal(const WrongAnimal &wrongAnimal);
 		virtual ~WrongAnimal(void);
+
+		virtual WrongAnimal	&operator=(const WrongAnimal &wrongAnimal);
 
 		void	makeSound(void) const;
 
