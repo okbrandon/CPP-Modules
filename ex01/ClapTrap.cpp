@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 09:25:42 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/10 12:55:29 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/14 11:26:30 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,9 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 void	ClapTrap::beRepaired(unsigned int amount) {
 	int	from = this->_hitPoints;
 
-	if (this->_energyPoints == 0) {
-		std::cout << "🌀 ClapTrap " << this->_name << " can't be repaired. No energy points left!" << std::endl;
+	if (from == 0 || this->_energyPoints == 0) {
+		std::cout << "🌀 ClapTrap " << this->_name << " can't be repaired. "
+				<< (from == 0 ? "Entity is dead." : "No energy points left!") << std::endl;
 		return ;
 	}
 
