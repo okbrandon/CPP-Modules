@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:16:24 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/15 18:30:20 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/18 14:28:09 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,10 @@ void	MateriaSource::learnMateria(AMateria* materia) {
 	for (int i = 0; i < MAX_TEMPLATES; i++) {
 		if (!this->_templates[i]) {
 			this->_templates[i] = materia;
-			break ;
+			return ;
 		}
 	}
+	delete materia; // Deleting Materia since templates are full
 }
 
 AMateria*	MateriaSource::createMateria(std::string const &type) {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.INVENTORY_SIZE2nice.fr>      +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/1INVENTORY_SIZE 1INVENTORY_SIZE:INVENTORY_SIZE0:55 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/15 17:INVENTORY_SIZE0:32 by bsoubaig         ###   ########.fr       */
+/*   Created: 2023/09/18 14:03:35 by bsoubaig          #+#    #+#             */
+/*   Updated: 2023/09/18 14:27:27 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ void	Character::equip(AMateria* m) {
 	for (int i = 0; i < INVENTORY_SIZE; i++) {
 		if (!this->_inventory[i]) {
 			this->_inventory[i] = m;
-			break ;
+			return ;
 		}
 	}
+	delete m; // Deleting Materia since inventory is full
 }
 
 void	Character::unequip(int idx) {
