@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 14:03:35 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/18 14:27:27 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:05:42 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ Character	&Character::operator=(const Character &character) {
 	this->_name = character._name;
 	this->_deleteInventory();
 	for (int i = 0; i < INVENTORY_SIZE; i++)
-		this->_inventory[i] = character._inventory[i]->clone(); // Cloning materia
+		if (character._inventory[i])
+			this->_inventory[i] = character._inventory[i]->clone(); // Cloning materia
 	return (*this);
 }
 

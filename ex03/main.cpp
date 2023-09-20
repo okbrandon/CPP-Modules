@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:31:43 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/18 14:27:37 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:05:52 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	testMateriaSource()
 
 	hero->use(0, *enemy);
 	hero->use(2, *enemy);
-
+	
 	delete matSource;
 	delete hero;
 	delete enemy;
