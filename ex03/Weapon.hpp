@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:20:53 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/11 10:45:19 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:37:06 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 
 # include <iostream>
 
-# define C_RESET 	"\x1b[0m"
-# define C_RED		"\x1b[31m\x1b[1m"
-# define C_GRY		"\x1b[90m\x1b[1m"
-# define C_GRN		"\x1b[32m\x1b[1m"
+# define BRED	"\e[1;31m"
+# define BGRN	"\e[1;32m"
+# define BYEL	"\e[1;33m"
+# define BBLU	"\e[1;34m"
+# define BMAG	"\e[1;35m"
+# define BCYN	"\e[1;36m"
+# define BWHT	"\e[1;37m"
+# define CRESET	"\e[0m"
 
 class	Weapon {
 
@@ -26,10 +30,14 @@ class	Weapon {
 		std::string	_type;
 
 	public:
+		/* Constructors & Destructors */
 		Weapon(std::string type);
 		~Weapon(void);
 
+		/* Getters */
 		std::string	getType(void);
+
+		/* Setters */
 		void		setType(std::string type);
 
 };

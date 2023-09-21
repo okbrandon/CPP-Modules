@@ -6,14 +6,13 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 20:44:42 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/13 12:09:13 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:47:22 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	Harl	harl;
 
 	(void) argc;

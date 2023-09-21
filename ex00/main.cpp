@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 09:32:59 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/11 10:34:04 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:27:38 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,20 @@
 Zombie	*newZombie(std::string name);
 void	randomChump(std::string name);
 
-int	main(void)
-{
-	std::cout << C_GRY << "Calling newZombie named 'Dumbass'..." << C_RESET << std::endl;
+int	main(void) {
+	std::cout << BWHT "Calling newZombie named 'Dumbass'..." CRESET << std::endl;
 	// First test
 	Zombie	*dumbass = newZombie("Dumbass");
 	dumbass->announce();
 
-	std::cout << C_GRY << "Calling randomChump named 'Pedro'..." << C_RESET << std::endl;
+	std::cout << BWHT "Calling randomChump named 'Pedro'..." CRESET << std::endl;
 	// Second test
 	randomChump("Pedro");
 
-	std::cout << C_GRY << "Killing Zombie object called 'Dumbass'..." << C_RESET << std::endl;
+	std::cout << BWHT "Killing Zombie object called 'Dumbass'..." CRESET << std::endl;
 	delete dumbass;
+
+	// Tests are done
+	std::cout << BYEL "All tests completed. Want to check for leaks? Run 'make debug'" CRESET << std::endl;
 	return (0);
 }

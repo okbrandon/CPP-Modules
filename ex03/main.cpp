@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:54:31 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/11 10:48:47 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:42:59 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,8 @@ int	main(void)
 		club.setType("some other type of club");
 		jim.attack();
 	}
+
+	// Tests are done
+	std::cout << BYEL "All tests completed. Want to check for leaks? Run 'make debug'" CRESET << std::endl;
 	return (0);
 }

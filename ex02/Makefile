@@ -6,7 +6,7 @@
 #    By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 17:45:22 by bsoubaig          #+#    #+#              #
-#    Updated: 2023/08/11 10:43:13 by bsoubaig         ###   ########.fr        #
+#    Updated: 2023/09/21 09:33:09 by bsoubaig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ endif
 
 # Debug compilation is launched
 ifdef DEBUG
-	CFLAGS += -fsanitize=address -g
+	CFLAGS += -fsanitize=leak -g
 endif
 
 ${OBJ_DIR}%.o:	${SRC_DIR}%.cpp

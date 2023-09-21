@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/11 11:00:24 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/12 19:47:16 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:45:52 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 #include <fstream>
 #include <sstream>
 
-#define C_RESET "\x1b[0m"
-#define C_RED	"\x1b[31m\x1b[1m"
-#define C_GRY	"\x1b[90m\x1b[1m"
-#define C_GRN	"\x1b[32m\x1b[1m"
+# define BRED	"\e[1;31m"
+# define BGRN	"\e[1;32m"
+# define BYEL	"\e[1;33m"
+# define BBLU	"\e[1;34m"
+# define BMAG	"\e[1;35m"
+# define BCYN	"\e[1;36m"
+# define BWHT	"\e[1;37m"
+# define CRESET	"\e[0m"
 
-std::string	findAndReplace(std::string line, std::string regex, std::string replacement)
-{
+std::string	findAndReplace(std::string line, std::string regex, std::string replacement) {
 	int	from = line.find(regex);
 
 	if (from == -1)
@@ -30,8 +33,7 @@ std::string	findAndReplace(std::string line, std::string regex, std::string repl
 	return (line);
 }
 
-void	replaceProcess(std::ifstream & inFile, std::ofstream & outFile, std::string find, std::string replace)
-{
+void	replaceProcess(std::ifstream & inFile, std::ofstream & outFile, std::string find, std::string replace) {
 	std::string	line;
 
 	std::getline(inFile, line);
@@ -46,35 +48,30 @@ void	replaceProcess(std::ifstream & inFile, std::ofstream & outFile, std::string
 	outFile << line << std::endl;
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	/* Check if args are correct */
-	if (argc != 4)
-	{
-		std::cerr << C_RED << "./replace <filename> <find> <replace>" << std::endl;
+	if (argc != 4) {
+		std::cerr << BRED "./replace <filename> <find> <replace>" CRESET << std::endl;
 		return (1);
 	}
 	std::string	fileName = argv[1];
 	std::string find = argv[2];
 	std::string	replace = argv[3];
 
-	if (fileName.empty() || find.empty() || replace.empty())
-	{
-		std::cerr << C_RED << "You can't insert empty arguments." << C_RESET << std::endl;
+	if (fileName.empty() || find.empty() || replace.empty()) {
+		std::cerr << BRED "You can't insert empty arguments." CRESET << std::endl;
 		return (1);
 	}
 	/* Read from in file */
 	std::ifstream	inFile(fileName.data());
-	if (!inFile.is_open())
-	{
-		std::cerr << C_RED << "Input file cannot be opened!" << C_RESET << std::endl;
+	if (!inFile.is_open()) {
+		std::cerr << BRED "Input file cannot be opened!" CRESET << std::endl;
 		return (1);
 	}
 	/* Create and open out file */
 	std::ofstream	outFile(fileName.append(".replace").data());
-	if (!outFile.is_open())
-	{
-		std::cerr << C_RED << "Output file cannot be created!" << C_RESET << std::endl;
+	if (!outFile.is_open()) {
+		std::cerr << BRED "Output file cannot be created!" CRESET << std::endl;
 		return (1);
 	}
 	/* Loop into in file */
@@ -83,5 +80,7 @@ int main(int argc, char **argv)
 	/* Closing files */
 	inFile.close();
 	outFile.close();
+	
+	std::cout << BGRN "The task has been completed." CRESET << std::endl;
 	return (0);
 }
