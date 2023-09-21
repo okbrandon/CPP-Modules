@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 13:01:50 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/11 14:50:27 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:50:38 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ class Dog : public Animal {
 	private:
 
 	public:
+		/* Constructors & Destructors */
 		Dog(void);
 		Dog(const Dog &dog);
 		~Dog(void);
 
-		Dog	&operator=(const Dog &dog);
-
+		/* Functions */
 		virtual void	makeSound(void) const;
+
+		/* Overloaded operators */
+		Dog	&operator=(const Dog &dog);
 
 };
 

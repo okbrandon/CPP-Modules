@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:31:43 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/20 19:05:52 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 14:00:42 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,10 @@
 #include "MateriaSource.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
-#include <iomanip>
-
-static void	printTitle(std::string title)
-{
-	std::string	toPrint;
-	int	size = 54;
-	int	n;
-
-	toPrint = " " + title + " ";
-	n = toPrint.size();
-	if (n > size)
-	{
-		toPrint = toPrint.substr(0, size - 2);
-		toPrint[size - 4] = '.';
-		toPrint[size - 3] = ' ';
-		n = toPrint.size();
-	}
-	std::cout << std::endl << std::setfill('=') << std::setw(size) << "" << std::endl;
-	std::cout << std::setw(size / 2) << toPrint.substr(0, n / 2);
-	std::cout << toPrint.substr(n / 2, n - n / 2);
-	std::cout << std::setfill('=') << std::setw(size - size / 2 - n + n / 2) << "" << std::endl;
-	std::cout << std::setfill('=') << std::setw(size) << "" << std::endl;
-}
 
 void testSubject(void)
 {
-	printTitle("SUBJECT");
+	std::cout << BWHT "\n>>> RUNNNING SUBJECT TESTS\n" CRESET << std::endl;
 	IMateriaSource* src = new MateriaSource();
 
 	src->learnMateria(new Ice());
@@ -65,61 +42,69 @@ void testSubject(void)
 
 void	testCharacter(void)
 {
-	printTitle("CHARACTER");
-	ICharacter	*hero = new Character("Lucie");
-	ICharacter	*enemy = new Character("Correcteur");
+	std::cout << BWHT "\n>>> TESTING CHARACTER OBJECT\n" CRESET << std::endl;
+	ICharacter	*pedro = new Character("Pedro");
+	ICharacter	*ivan = new Character("Ivan");
 	AMateria	*ice = new Ice();
 
-	hero->equip(new Ice());
-	hero->equip(ice);
-	hero->equip(new Cure());
-	hero->equip(new Ice());
-	hero->equip(new Ice());
-	enemy->equip(new Cure());
-	enemy->equip(new Cure());
-	enemy->equip(new Cure());
+	/* Filling Pedro's inventory */
+	pedro->equip(new Ice());
+	pedro->equip(ice);
+	pedro->equip(new Ice());
+	pedro->equip(new Cure());
+	pedro->equip(new Cure()); // Over filling Pedro's inventory
+	/* Filling Ivan's inventory */
+	ivan->equip(new Cure());
+	ivan->equip(new Cure());
+	ivan->equip(new Ice());
 
-	hero->use(0, *enemy);
-	hero->use(1, *enemy);
-	hero->use(3, *enemy);
-	enemy->use(2, *hero);
+	/* Using materias */
+	pedro->use(0, *ivan);
+	pedro->use(1, *ivan);
+	pedro->use(3, *ivan);
+	ivan->use(2, *pedro);
 
-	hero->unequip(1);
-	hero->use(1, *enemy);
+	/* Unequiping materia and use empty slot */
+	pedro->unequip(1);
+	pedro->use(1, *ivan);
 
-	hero->equip(new Cure());
-	hero->use(1, *enemy);
+	/* Equiping new materia and use the filled slot */
+	pedro->equip(new Cure());
+	pedro->use(1, *ivan);
 
-	delete hero;
-	delete enemy;
+	delete pedro;
+	delete ivan;
 	delete ice;
 }
 
 void	testMateriaSource()
 {
-	printTitle("MATERIA SOURCE");
-	IMateriaSource	*matSource = new MateriaSource();
-	ICharacter		*hero = new Character("Lucie");
-	ICharacter		*enemy = new Character("Correcteur");
+	std::cout << BWHT "\n>>> TESTING MATERIASOURCE OBJECT\n" CRESET << std::endl;
+	IMateriaSource	*materiaSource = new MateriaSource();
+	ICharacter		*pedro = new Character("Pedro");
+	ICharacter		*brandon = new Character("Brandon");
 	
-	matSource->learnMateria(new Ice());
-	matSource->learnMateria(new Cure());
-	matSource->learnMateria(new Cure());
-	matSource->learnMateria(new Cure());
-	matSource->learnMateria(new Cure());
+	/* Learning new materias */
+	materiaSource->learnMateria(new Ice());
+	materiaSource->learnMateria(new Cure());
+	materiaSource->learnMateria(new Cure());
+	materiaSource->learnMateria(new Cure());
+	materiaSource->learnMateria(new Cure()); // Over learning items
 
-	hero->equip(matSource->createMateria("ice"));
-	hero->equip(matSource->createMateria("cure"));
-	hero->equip(matSource->createMateria("cure"));
-	hero->equip(matSource->createMateria("ice"));
-	hero->equip(matSource->createMateria("cure"));
+	/* Equiping learnt materias */
+	pedro->equip(materiaSource->createMateria("cure"));
+	pedro->equip(materiaSource->createMateria("cure"));
+	pedro->equip(materiaSource->createMateria("ice"));
+	pedro->equip(materiaSource->createMateria("ice"));
+	pedro->equip(materiaSource->createMateria("cure")); // Over filling Pedro's inventory
 
-	hero->use(0, *enemy);
-	hero->use(2, *enemy);
+	/* Use against Brandon */
+	pedro->use(0, *brandon);
+	pedro->use(2, *brandon);
 	
-	delete matSource;
-	delete hero;
-	delete enemy;
+	delete materiaSource;
+	delete pedro;
+	delete brandon;
 }
 
 int	main(void)
@@ -127,5 +112,8 @@ int	main(void)
 	testSubject();
 	testCharacter();
 	testMateriaSource();
+
+	// Tests are done
+	std::cout << BYEL "All tests completed. Want to check for leaks? Run 'make debug'" CRESET << std::endl;
 	return (0);
 }

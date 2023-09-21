@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 14:01:36 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/15 17:46:56 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:35:07 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,21 @@ class AMateria {
 		std::string	_type;
 
 	public:
+		/* Constructors & Destructors */
 		AMateria(void);
 		AMateria(std::string const & type);
 		AMateria(const AMateria	&materia);
 		virtual ~AMateria(void);
 
-		virtual AMateria*	clone() const = 0;
+		/* Functions */
 		virtual void		use(ICharacter& target);
 
-		virtual AMateria	&operator=(const AMateria &materia);
-
+		/* Getters */
 		std::string const & getType() const;
+		virtual AMateria*	clone() const = 0;
+
+		/* Overloaded operators */
+		virtual AMateria	&operator=(const AMateria &materia);
 		
 };
 

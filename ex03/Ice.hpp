@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:47:19 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/15 17:56:14 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:48:47 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,16 @@ class Ice : public AMateria {
 	private:
 
 	public:
+		/* Constructors & Destructors */
 		Ice(void);
 		Ice(const Ice &ice);
 		~Ice(void);
 
-		AMateria*	clone(void) const;
+		/* Functions */
 		void		use(ICharacter &target);
-
+		AMateria*	clone(void) const;
+		
+		/* Overloaded operators */
 		Ice		&operator=(const Ice &ice);
 	
 };

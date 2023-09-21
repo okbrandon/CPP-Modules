@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 13:01:50 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/14 12:33:23 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:21:51 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,19 @@ class Dog : public AAnimal {
 		Brain	*_brain;
 
 	public:
+		/* Construcotrs & Destructors */
 		Dog(void);
 		Dog(const Dog &dog);
 		~Dog(void);
 
-		Dog	&operator=(const Dog &dog);
-
+		/* Functions */
 		virtual void	makeSound(void) const;
 
+		/* Getters */
 		Brain	*getBrain(void) const;
+
+		/* Overloaded operators */
+		Dog	&operator=(const Dog &dog);
 
 };
 

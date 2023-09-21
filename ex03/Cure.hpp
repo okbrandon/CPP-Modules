@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 17:58:01 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/15 17:59:24 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:48:53 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ class Cure : public AMateria {
 	private:
 
 	public:
+		/* Constructors & Destructors */
 		Cure(void);
 		Cure(const Cure &cure);
 		~Cure(void);
 
-		AMateria*	clone(void) const;
+		/* Functions */
 		void		use(ICharacter &target);
-
-		Cure	&operator=(const Cure &cure);
+		AMateria*	clone(void) const;
 	
+		/* Overloaded operators */
+		Cure	&operator=(const Cure &cure);
+
 };
 
 #endif

@@ -6,25 +6,27 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:05:37 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/11 15:17:06 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 11:04:44 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
 
+/* Constructors & Destructors*/
 Brain::Brain(void) {
-	std::cout << "[Brain] Constructor called." << std::endl;
+	std::cout << BGRN "[Brain] " CRESET "New object." << std::endl;
 }
 
 Brain::Brain(const Brain &brain) {
 	*this = brain;
-	std::cout << "[Brain] Copy constructor called." << std::endl;
+	std::cout << BGRN "[Brain] " CRESET "Copied object." << std::endl;
 }
 
 Brain::~Brain(void) {
-	std::cout << "[Brain] Destructor called." << std::endl;
+	std::cout << BRED "[Brain] " CRESET "Deleting object." << std::endl;
 }
 
+/* Overloaded operators */
 Brain	&Brain::operator=(const Brain &brain) {
 	for (int i = 0; i < 100; i++)
 		this->ideas[i] = brain.ideas[i];
