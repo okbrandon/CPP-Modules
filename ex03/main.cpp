@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/29 12:42:59 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/29 15:03:29 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:26:22 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main(void) {
 			"             /   P   \\" << std::endl <<
 			"            /         \\" << std::endl <<
 			"     A(0,0) ----------- C(20,0)" << std::endl;
-	std::cout << C_GRY << "P(10, 15) inside triangle? " << (bsp(a, b, c, p1) ? C_GRN"yes" : C_RED"no") << C_RESET << std::endl;
+	std::cout << BWHT << "P(10, 15) inside triangle? " << (bsp(a, b, c, p1) ? BGRN"yes" : BRED"no") << CRESET << std::endl;
 
 	/** Is outside */
 	Point	p2(0, 15);
@@ -42,7 +42,7 @@ int main(void) {
 			"           P /       \\" << std::endl <<
 			"            /         \\" << std::endl <<
 			"     A(0,0) ----------- C(20,0)" << std::endl;
-	std::cout << C_GRY << "P(0, 15) inside triangle? " << (bsp(a, b, c, p2) ? C_GRN"yes" : C_RED"no") << C_RESET << std::endl;
+	std::cout << BWHT << "P(0, 15) inside triangle? " << (bsp(a, b, c, p2) ? BGRN"yes" : BRED"no") << CRESET << std::endl;
 
 	/** Is on edge */
 	Point	p3(10, 0);
@@ -54,7 +54,7 @@ int main(void) {
 			"             /       \\" << std::endl <<
 			"            /         \\" << std::endl <<
 			"     A(0,0) -----P----- C(20,0)" << std::endl;
-	std::cout << C_GRY << "P(10, 0) inside triangle? " << (bsp(a, b, c, p3) ? C_GRN"yes" : C_RED"no") << C_RESET << std::endl;
+	std::cout << BWHT << "P(10, 0) inside triangle? " << (bsp(a, b, c, p3) ? BGRN"yes" : BRED"no") << CRESET << std::endl;
 
 	/** Is a vertex */
 	Point	p4(10, 30);
@@ -66,6 +66,6 @@ int main(void) {
 			"             /       \\" << std::endl <<
 			"            /         \\" << std::endl <<
 			"     A(0,0) ----------- C(20,0)" << std::endl;
-	std::cout << C_GRY << "P(10, 30) inside triangle? " << (bsp(a, b, c, p4) ? C_GRN"yes" : C_RED"no") << C_RESET << std::endl;
+	std::cout << BWHT << "P(10, 30) inside triangle? " << (bsp(a, b, c, p4) ? BGRN"yes" : BRED"no") << CRESET << std::endl;
 	return (0);
 }

@@ -6,12 +6,13 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/21 16:29:49 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/29 11:54:08 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:13:03 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+/* Constructors & Destructors */
 Fixed::Fixed(void) {
 	this->_value = 0;
 }
@@ -30,6 +31,49 @@ Fixed::Fixed(const float number) {
 
 Fixed::~Fixed(void) {}
 
+/* Getters */
+int	Fixed::getRawBits(void) const {
+	return (this->_value);
+}
+
+float	Fixed::toFloat(void) const {
+	return ((float) this->_value / (1 << Fixed::_fractionalBits));
+}
+
+int	Fixed::toInt(void) const {
+	return (this->_value >> Fixed::_fractionalBits);
+}
+
+Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs) {
+	if (lhs < rhs)
+		return (lhs);
+	return (rhs);
+}
+
+const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs) {
+	if ((Fixed) lhs < (Fixed) rhs)
+		return (lhs);
+	return (rhs);
+}
+
+Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs) {
+	if (lhs < rhs)
+		return (rhs);
+	return (lhs);
+}
+
+const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs) {
+	if ((Fixed) lhs < (Fixed) rhs)
+		return (rhs);
+	return (lhs);
+}
+
+/* Setters */
+void	Fixed::setRawBits(int const raw) {
+	this->_value = raw;
+}
+
+/* Overloaded operators */
 Fixed	&Fixed::operator=(const Fixed &fixed) {
 	this->_value = fixed._value;
 	return (*this);
@@ -105,47 +149,7 @@ Fixed 	Fixed::operator--(int) {
 	return (post);
 }
 
-Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs) {
-	if (lhs < rhs)
-		return (lhs);
-	return (rhs);
-}
-
-const Fixed	&Fixed::min(const Fixed &lhs, const Fixed &rhs) {
-	if ((Fixed) lhs < (Fixed) rhs)
-		return (lhs);
-	return (rhs);
-}
-
-Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs) {
-	if (lhs < rhs)
-		return (rhs);
-	return (lhs);
-}
-
-const Fixed	&Fixed::max(const Fixed &lhs, const Fixed &rhs) {
-	if ((Fixed) lhs < (Fixed) rhs)
-		return (rhs);
-	return (lhs);
-}
-
 std::ostream	&operator<<(std::ostream &out, const Fixed &fixed) {
 	out << fixed.toFloat();
 	return (out);
-}
-
-int	Fixed::getRawBits(void) const {
-	return (this->_value);
-}
-
-void	Fixed::setRawBits(int const raw) {
-	this->_value = raw;
-}
-
-float	Fixed::toFloat(void) const {
-	return ((float) this->_value / (1 << Fixed::_fractionalBits));
-}
-
-int	Fixed::toInt(void) const {
-	return (this->_value >> Fixed::_fractionalBits);
 }
