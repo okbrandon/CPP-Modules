@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:12:32 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/10 12:52:47 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 10:39:01 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,17 @@ class FragTrap : virtual public ClapTrap {
 	private:
 
 	public:
+		/* Constructors & Destructors */
 		FragTrap(void);
 		FragTrap(std::string name);
 		FragTrap(const FragTrap &fragTrap);
 		~FragTrap(void);
 
-		FragTrap	&operator=(const FragTrap &fragTrap);
-
+		/* Functions */
 		void	highFivesGuys(void);
+
+		/* Overloaded operators */
+		FragTrap	&operator=(const FragTrap &fragTrap);
 
 };
 
