@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:04:46 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/10 18:33:34 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:29:29 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 /**
  * @brief Construct a new Phone Book:: Phone Book object
  */
-PhoneBook::PhoneBook(void)
-{
+PhoneBook::PhoneBook(void) {
 	this->_i = 0;
 }
 
@@ -31,8 +30,7 @@ PhoneBook::~PhoneBook(void) {}
  * @param prompt				- What you want from the user
  * @return std::string 			- Returned input if valid
  */
-std::string	linePrompt(std::string prompt)
-{
+std::string	linePrompt(std::string prompt) {
 	std::string	input;
 	std::cout << "   " << prompt << ": ";
 	while (1)
@@ -53,8 +51,7 @@ std::string	linePrompt(std::string prompt)
  *
  * @param contact 				- The contact to add
  */
-void	PhoneBook::addContact(Contact contact)
-{
+void	PhoneBook::addContact(Contact contact) {
 	if (this->_i >= 8)
 		this->_i = 0;
 	this->_contacts[this->_i++] = contact;
@@ -64,8 +61,7 @@ void	PhoneBook::addContact(Contact contact)
  * @brief Ask the user, data about the new user using prompts
  * It'll automatically add the new contact to the contact list at the end
  */
-void	PhoneBook::addContactPrompt(void)
-{
+void	PhoneBook::addContactPrompt(void) {
 	std::ostringstream	oss;
 	Contact				contact;
 
@@ -73,8 +69,8 @@ void	PhoneBook::addContactPrompt(void)
 	std::cout << "Let's add a new contact. It'll be contact #" \
 			<< oss.str() << std::endl;
 	if (this->_i >= 8)
-		std::cout << C_ERROR << "Your new contact will overwrite '" << \
-			this->_contacts[0].getNickname() << "'..." << C_RESET << std::endl;
+		std::cout << BRED "Your new contact will overwrite '" CRESET << \
+			this->_contacts[0].getNickname() << BRED "'..." CRESET << std::endl;
 	/* Asking for the first name */
 	contact.setFirstName(linePrompt("First name"));
 	/* Asking for the last name */
@@ -87,16 +83,15 @@ void	PhoneBook::addContactPrompt(void)
 	contact.setDarkestSecret(linePrompt("Darkest secret"));
 	/* Adding the contact */
 	this->addContact(contact);
-	std::cout << C_OK << "New contact made! Added '" << C_RESET << \
-		contact.getNickname() << C_OK << "'..." << C_RESET << std::endl;
+	std::cout << BGRN "New contact made! Added '" CRESET << \
+		contact.getNickname() << BGRN "'..." CRESET << std::endl;
 }
 
 /**
  * @brief Ask the user which contact to display
  * It'll first display all the existing contacts
  */
-void	PhoneBook::searchPrompt(void)
-{
+void	PhoneBook::searchPrompt(void) {
 	int			id;
 	std::string	input;
 
@@ -110,7 +105,7 @@ void	PhoneBook::searchPrompt(void)
 	{
 		if (!std::isdigit(input.at(i)))
 		{
-			std::cout << C_ERROR << "This value is invalid." << C_RESET << std::endl;
+			std::cout << BRED "This value is invalid." CRESET << std::endl;
 			PhoneBook::searchPrompt();
 			return ;
 		}
@@ -118,14 +113,12 @@ void	PhoneBook::searchPrompt(void)
 	std::istringstream(input) >> id;
 	if (id < 0 || id >= 8)
 	{
-		std::cout << C_ERROR << "You can only display contacts from index 0 to 8." \
-			<< C_RESET << std::endl;
+		std::cout << BRED "You can only display contacts from index 0 to 8." CRESET << std::endl;
 		return ;
 	}
 	if (this->_contacts[id].getFirstName().empty())
 	{
-		std::cout << C_ERROR << "This contact is unknown, please refer to your list." \
-			<< C_RESET << std::endl;
+		std::cout << BRED "This contact is unknown, please refer to your list." CRESET << std::endl;
 		return ;
 	}
 	this->_contacts[id].printData();
@@ -139,8 +132,7 @@ void	PhoneBook::searchPrompt(void)
  * @param str 					- The string to fix
  * @return std::string 			- The fixed string
  */
-std::string	fixWidth(std::string str)
-{
+std::string	fixWidth(std::string str) {
 	if ((int) str.length() > 10)
 	{
 		str = str.substr(0, 9);
@@ -152,8 +144,7 @@ std::string	fixWidth(std::string str)
 /**
  * @brief Display all contacts registered
  */
-void	PhoneBook::displayContacts(void)
-{
+void	PhoneBook::displayContacts(void) {
 	std::ostringstream	oss;
 	Contact				contact;
 	int					i;

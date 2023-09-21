@@ -6,7 +6,7 @@
 #    By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 17:45:22 by bsoubaig          #+#    #+#              #
-#    Updated: 2023/08/10 17:54:13 by bsoubaig         ###   ########.fr        #
+#    Updated: 2023/09/21 09:29:09 by bsoubaig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME			= phonebook
 SRC_DIR			= ./
 SRCS			= Contact.cpp \
 				  PhoneBook.cpp \
-				  Main.cpp
+				  main.cpp
 
 OBJ_DIR			= ./objs/
 OBJS			= ${addprefix ${OBJ_DIR}, ${SRCS:.cpp=.o}}
@@ -50,7 +50,7 @@ endif
 
 # Debug compilation is launched
 ifdef DEBUG
-	CFLAGS += -fsanitize=address -g
+	CFLAGS += -fsanitize=leak -g
 endif
 
 ${OBJ_DIR}%.o:	${SRC_DIR}%.cpp

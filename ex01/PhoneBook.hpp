@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:56:17 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/10 17:54:04 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:29:42 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@
 # include <sstream>
 # include <iomanip>
 
-# define C_RESET 	"\x1b[0m"
-# define C_ERROR	"\x1b[31m\x1b[1m"
-# define C_OK		"\x1b[32m\x1b[1m"
+# define BRED	"\e[1;31m"
+# define BGRN	"\e[1;32m"
+# define BYEL	"\e[1;33m"
+# define BBLU	"\e[1;34m"
+# define BMAG	"\e[1;35m"
+# define BCYN	"\e[1;36m"
+# define BWHT	"\e[1;37m"
+# define CRESET	"\e[0m"
 
 class	PhoneBook {
 
@@ -28,9 +33,11 @@ class	PhoneBook {
 		int		_i;
 
 	public:
+		/* Constructors & Destructors */
 		PhoneBook(void);
 		~PhoneBook(void);
 
+		/* Functions */
 		void				addContact(Contact contact);
 		void				addContactPrompt(void);
 		void				searchPrompt(void);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:20:49 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/15 14:16:31 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:09:14 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,22 +26,26 @@ class	Contact {
 		std::string _darkestSecret;
 
 	public:
+		/* Constructors & Destructors */
 		Contact(void);
 		~Contact(void);
+		
+		/* Functions */
+		void	printData(void);
 
-		void		setFirstName(std::string firstName);
-		void		setLastName(std::string lastName);
-		void		setNickname(std::string nickname);
-		void		setPhoneNumber(std::string phoneNumber);
-		void		setDarkestSecret(std::string darkestSecret);
-
+		/* Getters */
 		std::string	getFirstName(void) const;
 		std::string	getLastName(void) const;
 		std::string getNickname(void) const;
 		std::string	getPhoneNumber(void) const;
 		std::string	getDarkestSecret(void) const;
 
-		void	printData(void);
+		/* Setters */
+		void		setFirstName(std::string firstName);
+		void		setLastName(std::string lastName);
+		void		setNickname(std::string nickname);
+		void		setPhoneNumber(std::string phoneNumber);
+		void		setDarkestSecret(std::string darkestSecret);
 
 };
 

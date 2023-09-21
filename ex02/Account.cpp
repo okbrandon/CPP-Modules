@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:50:55 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/08/10 18:04:56 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:30:23 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int	Account::_totalNbWithdrawals = 0;
  *
  * @param initial_deposit				- Initial cash amount in account
  */
-Account::Account(int initial_deposit)
-{
+Account::Account(int initial_deposit) {
 	Account::_nbAccounts++;
 	Account::_totalAmount += initial_deposit;
 	this->_accountIndex = this->_nbAccounts - 1;
@@ -44,8 +43,7 @@ Account::Account(int initial_deposit)
 /**
  * @brief Destroy the Account:: Account object
  */
-Account::~Account(void)
-{
+Account::~Account(void) {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";" \
 			<< "amount:" << this->_amount << ";" \
@@ -57,8 +55,7 @@ Account::~Account(void)
  *
  * @return int				- Registered accounts count
  */
-int	Account::getNbAccounts(void)
-{
+int	Account::getNbAccounts(void) {
 	return (Account::_nbAccounts);
 }
 
@@ -67,8 +64,7 @@ int	Account::getNbAccounts(void)
  *
  * @return int				- Total amount of money
  */
-int	Account::getTotalAmount(void)
-{
+int	Account::getTotalAmount(void) {
 	return (Account::_totalAmount);
 }
 
@@ -77,8 +73,7 @@ int	Account::getTotalAmount(void)
  *
  * @return int				- Total amount of deposits
  */
-int	Account::getNbDeposits(void)
-{
+int	Account::getNbDeposits(void) {
 	return (Account::_totalNbDeposits);
 }
 
@@ -87,8 +82,7 @@ int	Account::getNbDeposits(void)
  *
  * @return int				- Total amount of withdrawals
  */
-int	Account::getNbWithdrawals(void)
-{
+int	Account::getNbWithdrawals(void) {
 	return (Account::_totalNbWithdrawals);
 }
 
@@ -97,16 +91,14 @@ int	Account::getNbWithdrawals(void)
  *
  * @return int				- Total amount of money
  */
-int	Account::checkAmount(void) const
-{
+int	Account::checkAmount(void) const {
 	return (this->_amount);
 }
 
 /**
  * @brief Function used to display the current timestamp
  */
-void	Account::_displayTimestamp(void)
-{
+void	Account::_displayTimestamp(void) {
 	time_t		time = std::time(0);
 	tm			*localtime = std::localtime(&time);
 	const char	originalFill = std::cout.fill();
@@ -127,8 +119,7 @@ void	Account::_displayTimestamp(void)
  *
  * @param deposit				- Total amount to deposit
  */
-void	Account::makeDeposit(int deposit)
-{
+void	Account::makeDeposit(int deposit) {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";" \
 			<< "p_amount:" << this->_amount << ";" \
@@ -151,8 +142,7 @@ void	Account::makeDeposit(int deposit)
  * @return true					- If the account has enough funds
  * @return false 				- If the account doesn't have enought funds
  */
-bool	Account::makeWithdrawal(int withdrawal)
-{
+bool	Account::makeWithdrawal(int withdrawal) {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";" \
 			<< "p_amount:" << this->_amount << ";" \
@@ -177,8 +167,7 @@ bool	Account::makeWithdrawal(int withdrawal)
 /**
  * @brief Function used to display the status of the current account
  */
-void	Account::displayStatus(void) const
-{
+void	Account::displayStatus(void) const {
 	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";" \
 			<< "amount:" << this->_amount << ";" \
@@ -189,8 +178,7 @@ void	Account::displayStatus(void) const
 /**
  * @brief Function used to display bank's informations
  */
-void	Account::displayAccountsInfos(void)
-{
+void	Account::displayAccountsInfos(void) {
 	Account::_displayTimestamp();
 	std::cout << "accounts:" << getNbAccounts() << ";" \
 			<< "total:" << getTotalAmount() << ";" \

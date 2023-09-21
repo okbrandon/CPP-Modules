@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bsoubaig <bsoubaig@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:13:50 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/03/20 16:57:39 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/21 09:28:58 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-int	main(void)
-{
+int	main(void) {
 	PhoneBook	phoneBook;
 	std::string	input;
 
