@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 20:04:46 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/22 11:10:22 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:16:40 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	PhoneBook::_displayContacts(void) {
 	i = 0;
 	std::cout << "o----------o----------o----------o----------o" << std::endl;
 	std::cout << std::setfill(' ') \
-			<< "|" << std::setw(10) << "index" \
-			<< "|" << std::setw(10) << "first name" \
-			<< "|" << std::setw(10) << "last name" \
-			<< "|" << std::setw(10) << "nickname" \
-			<< "|" << std::endl;
+			<< "|" BCYN << std::setw(10) << "index" \
+			<< CRESET "|" BCYN << std::setw(10) << "first name" \
+			<< CRESET "|" BCYN << std::setw(10) << "last name" \
+			<< CRESET "|" BCYN << std::setw(10) << "nickname" \
+			<< CRESET "|" << std::endl;
 	std::cout << "o----------o----------o----------o----------o" << std::endl;
 	while (i < 8)
 	{
@@ -91,7 +91,7 @@ void	PhoneBook::addContactPrompt(void) {
 
 	oss << this->_i % 8;
 	std::cout << "Let's add a new contact. It'll be contact #" \
-			<< oss.str() << std::endl;
+			<< BGRN << oss.str() << CRESET << std::endl;
 	if (this->_i >= 8)
 		std::cout << BRED "Your new contact will overwrite '" CRESET << \
 			this->_contacts[0].getNickname() << BRED "'..." CRESET << std::endl;
