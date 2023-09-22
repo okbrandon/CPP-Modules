@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 19:56:17 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 09:29:42 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/22 11:09:58 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ class	PhoneBook {
 	private:
 		Contact	_contacts[8];
 		int		_i;
+		
+		/* Private functions */
+		void				_addContact(Contact contact);
+		void				_displayContacts(void);
+		std::string			_linePrompt(std::string prompt);
+		std::string			_fixWidth(std::string str);
 
 	public:
 		/* Constructors & Destructors */
@@ -38,10 +44,8 @@ class	PhoneBook {
 		~PhoneBook(void);
 
 		/* Functions */
-		void				addContact(Contact contact);
 		void				addContactPrompt(void);
 		void				searchPrompt(void);
-		void				displayContacts(void);
 
 };
 
