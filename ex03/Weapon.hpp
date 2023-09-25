@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:20:53 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 09:37:06 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:51:51 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	Weapon {
 		~Weapon(void);
 
 		/* Getters */
-		std::string	getType(void);
+		const std::string	getType(void);
 
 		/* Setters */
 		void		setType(std::string type);
