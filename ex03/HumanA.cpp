@@ -6,12 +6,13 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 10:28:37 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 09:43:32 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/09/25 11:56:52 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
+/* Constructors & Destructors */
 HumanA::HumanA(std::string name, Weapon &weapon): _weapon(weapon) {
 	this->_name = name;
 	std::cout << BGRN "[HumanA] " CRESET << "New object called '" BCYN << \
@@ -24,6 +25,7 @@ HumanA::~HumanA(void) {
 		this->_name << CRESET "'..." << std::endl;
 }
 
+/* Functions */
 void	HumanA::attack(void) {
 	std::cout << BYEL << this->_name << CRESET " attacks with their " BYEL \
 		<< this->_weapon.getType() << CRESET << std::endl;
