@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 14:51:24 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 10:42:24 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/10/03 14:22:49 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 /* Constructors & Destructors */
 DiamondTrap::DiamondTrap(void) : ClapTrap("unidentified_clap_name") {
 	this->_name = "unidentified";
-	this->FragTrap::_hitPoints = 100;
-	this->ScavTrap::_energyPoints = 50;
-	this->FragTrap::_attackDamage = 30;
+	this->_hitPoints = this->FragTrap::_hitPoints;
+	this->_energyPoints = this->ScavTrap::_energyPoints;
+	this->_attackDamage = this->FragTrap::_attackDamage;
 	std::cout << BGRN "[DiamondTrap] " CRESET << "New object called '" BCYN << \
 		this->_name << CRESET "'..." << std::endl;
 }
 
 DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name") {
 	this->_name = name;
-	this->FragTrap::_hitPoints = 100;
-	this->ScavTrap::_energyPoints = 50;
-	this->FragTrap::_attackDamage = 30;
+	this->_hitPoints = this->FragTrap::_hitPoints;
+	this->_energyPoints = this->ScavTrap::_energyPoints;
+	this->_attackDamage = this->FragTrap::_attackDamage;
 	std::cout << BGRN "[DiamondTrap] " CRESET << "New object called '" BCYN << \
 		this->_name << CRESET "'..." << std::endl;
 }
