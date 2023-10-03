@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 09:21:50 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 10:39:46 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/10/03 14:20:59 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ class ClapTrap {
 		~ClapTrap(void);
 
 		/* Functions */
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		virtual void	attack(const std::string& target);
+		virtual void	takeDamage(unsigned int amount);
+		virtual void	beRepaired(unsigned int amount);
 
 		/* Getters */
 		std::string getName(void);
