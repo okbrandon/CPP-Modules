@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 12:53:18 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 10:46:16 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:34:45 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ Animal::~Animal(void) {
 }
 
 /* Functions */
-void	Animal::makeSound(void) const {}
+void	Animal::makeSound(void) const {
+	std::cout << BYEL "[Animal] " CRESET << "what am I? I am confusion" << std::endl;
+}
 
 /* Getters */
 std::string	Animal::getType(void) const {

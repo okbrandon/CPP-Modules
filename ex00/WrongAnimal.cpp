@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 14:40:01 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 10:54:06 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:33:36 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ WrongAnimal::~WrongAnimal(void) {
 }
 
 /* Functions */
-void	WrongAnimal::makeSound(void) const {}
+void	WrongAnimal::makeSound(void) const {
+	std::cout << BYEL "[WrongAnimal] " CRESET << "what am I? I am confusion" << std::endl;
+}
 
 /* Getters */
 std::string	WrongAnimal::getType(void) const {
