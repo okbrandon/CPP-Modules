@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:59:48 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 11:03:44 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/10/05 16:52:33 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 class Brain {
 	
-	protected:
+	private:
 
 	public:
 		/* Attributes */

@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 13:09:39 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/09/21 11:11:34 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/10/05 17:02:40 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int	main(void) {
+void	testSubject(void) {
+	std::cout << BWHT "\n>>> RUNNING SUBJECT TESTS\n" CRESET << std::endl;
+	/* Subject asking to create and make an array with half Dog and half Cat */
 	Animal	*animals[4];
-
-	std::cout << BWHT "\n>>> FILLING ARRAY SEMI DOG, SEMI CAT\n" CRESET << std::endl;
 
 	for (int i = 0; i < 4; i++) {
 		if (i < 2)
@@ -28,12 +28,21 @@ int	main(void) {
 			animals[i] = new Cat();
 	}
 
+	/* Testing destructors order (Brain > Dog/Cat > Animal) */
 	std::cout << BWHT "Filling done. Deleting every Animal..." CRESET << std::endl;
-
 	for (int i = 0; i < 4; i++)
 		delete animals[i];
-	// -----------------------------------
-	std::cout << BWHT << "\n>>> DEEP COPY TESTING\n" << CRESET << std::endl;
+
+	/* Provided by subject */
+	const Animal*	j = new Dog();
+	const Animal*	i = new Cat();
+
+	delete j;
+	delete i;
+}
+
+void	testDeepCopy(void) {
+	std::cout << BWHT "\n>>> RUNNING DEEPCOPY TESTS\n" CRESET << std::endl;
 	std::cout << BWHT << "--- Dog's behavior ---" << CRESET << std::endl;
 	Dog	dogA;
 	Dog dogB;
@@ -71,14 +80,11 @@ int	main(void) {
 	std::cout << "    idea[0]=" << BGRN << catA.getBrain()->ideas[0] << CRESET << " (" << &catA.getBrain()->ideas[0] << ")" << std::endl;
 	std::cout << "CatB's address (" << &catB << ")..." << std::endl;
 	std::cout << "    idea[0]=" << BGRN << catB.getBrain()->ideas[0] << CRESET <<" (" << &catB.getBrain()->ideas[0] << ")" << std::endl;
-	// -----------------------------------
-	std::cout << BWHT "\n>>> RUNNING TESTS FROM SUBJECT\n" CRESET << std::endl;
-	const Animal*	j = new Dog();
-	const Animal*	i = new Cat();
-	
-	delete j;
-	delete i;
-	// -----------------------------------
+}
+
+int	main(void) {
+	testSubject();
+	testDeepCopy();
 	
 	// Tests are done
 	std::cout << BYEL "All tests completed. Want to check for leaks? Run 'make debug'" CRESET << std::endl;
