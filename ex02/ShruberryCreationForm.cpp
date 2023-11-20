@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:28:09 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 18:49:02 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/20 20:35:53 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	ShruberryCreationForm::executeRequirements(Bureaucrat const &executor) cons
 	outfile << "       |.|        | |         | |" << std::endl;
 	outfile << "jgs \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
 	outfile.close();
+	(void) executor;
 }
 
 /* Overloaded operators */
