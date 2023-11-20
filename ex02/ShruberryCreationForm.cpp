@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:28:09 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 18:37:13 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:49:02 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,7 @@ ShruberryCreationForm::~ShruberryCreationForm(void) {
 }
 
 /* Functions */
-void	ShruberryCreationForm::execute(Bureaucrat const &executor) const {
-	try {
-		executeRequirements(executor);
-	} catch (std::exception &exception) {
-		std::cout << BYEL "[ShruberryCreationForm] " CRESET "An error occured while executing '" BCYN << \
-			exception.what() << CRESET "'..." << std::endl;
-		return ;
-	}
-
+void	ShruberryCreationForm::executeRequirements(Bureaucrat const &executor) const {
 	std::string		fileName = this->_target + "_shruberry";
 	std::ofstream	outfile(fileName.c_str());
 	

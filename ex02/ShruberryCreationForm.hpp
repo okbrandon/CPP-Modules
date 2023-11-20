@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:06:19 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 18:12:53 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:48:54 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class ShruberryCreationForm : public AForm {
 		~ShruberryCreationForm(void);
 
 		/* Functions */
-		virtual void	execute(Bureaucrat const &executor) const;
+		virtual void	executeRequirements(Bureaucrat const &executor) const;
 
 		/* Overloaded operators */
 		ShruberryCreationForm	&operator=(const ShruberryCreationForm &shruberryCreationForm);

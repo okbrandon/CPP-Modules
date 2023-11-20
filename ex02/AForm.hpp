@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:36:51 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 18:27:05 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:48:14 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ class AForm {
 
 		/* Functions */
 		void			beSigned(Bureaucrat &bureaucrat);
-		void			executeRequirements(Bureaucrat const &executor) const;
-		virtual void	execute(Bureaucrat const &executor) const = 0;
+		void			execute(Bureaucrat const &executor) const;
+		virtual void	executeRequirements(Bureaucrat const &executor) const = 0;
 
 		/* Getters */
 		const std::string	&getName(void) const;

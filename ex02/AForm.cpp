@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:00:10 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 18:28:05 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:48:37 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,15 @@ void	AForm::beSigned(Bureaucrat &bureaucrat) {
 		this->_signed = true;
 }
 
-void	AForm::executeRequirements(Bureaucrat const &executor) const {
+void	AForm::execute(Bureaucrat const &executor) const {
 	if (!this->isSigned())
 		throw AForm::UnsignedFormException();
 	if (executor.getGrade() > this->getRequiredExec())
 		throw AForm::GradeTooLowException();
+	executeRequirements(executor);
 }
 
-void	AForm::execute(Bureaucrat const &executor) const {
+void	AForm::executeRequirements(Bureaucrat const &executor) const {
 	(void) executor;
 }
 
