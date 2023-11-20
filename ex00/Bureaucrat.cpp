@@ -6,27 +6,25 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:31:57 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 11:15:32 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:15:09 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 /* Constructors & Destructors */
-Bureaucrat::Bureaucrat(void) {
-	this->_name = "unidentified";
+Bureaucrat::Bureaucrat(void): _name("unidentified") {
 	this->_grade = 150;
 	std::cout << BGRN "[Bureaucrat] " CRESET "New object called '" BCYN << \
 		this->_name << CRESET "' with grade " BCYN << this->_grade << CRESET \
 		"..." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string &name, int grade) {
+Bureaucrat::Bureaucrat(const std::string &name, int grade): _name(name) {
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	else if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	this->_name = name;
 	this->_grade = grade;
 	std::cout << BGRN "[Bureaucrat] " CRESET "New object called '" BCYN << \
 		this->_name << CRESET "' with grade " BCYN << this->_grade << CRESET \
@@ -85,8 +83,8 @@ int	Bureaucrat::getGrade(void) const {
 
 /* Overloaded operators */
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &bureaucrat) {
-	this->_name = bureaucrat.getName();
-	this->_grade = bureaucrat.getGrade();
+	if (this != &bureaucrat)
+		this->_grade = bureaucrat.getGrade();
 	return (*this);
 }
 

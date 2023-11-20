@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:07:15 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 11:02:25 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:14:25 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@
 class Bureaucrat {
 	
 	private:
-		std::string	_name;
-		int			_grade;
+		const std::string	_name;
+		int					_grade;
 
 	public:
 		/* Constructors & Destructors */
