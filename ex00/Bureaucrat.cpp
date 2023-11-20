@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:31:57 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 14:15:09 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:35:16 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ Bureaucrat::Bureaucrat(const std::string &name, int grade): _name(name) {
 		"..." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat) {
+Bureaucrat::Bureaucrat(const Bureaucrat &bureaucrat): _name(bureaucrat.getName()) {
 	*this = bureaucrat;
 	std::cout << BGRN "[Bureaucrat] " CRESET "Copied object called '" BCYN << \
 		this->_name << CRESET "'..." << std::endl;
