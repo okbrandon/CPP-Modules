@@ -6,7 +6,7 @@
 #    By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 17:45:22 by bsoubaig          #+#    #+#              #
-#    Updated: 2023/11/20 20:35:22 by bsoubaig         ###   ########.fr        #
+#    Updated: 2023/11/21 11:07:52 by bsoubaig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS			= Bureaucrat.cpp \
 				  AForm.cpp \
 				  ShruberryCreationForm.cpp \
 				  RobotomyRequestForm.cpp \
+				  PresidentialPardonForm.cpp \
 				  main.cpp \
 
 OBJ_DIR			= ./objs/
