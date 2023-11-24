@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:17:24 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/24 16:31:27 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/24 16:59:24 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 
 # include <iostream>
 
-template <class T> void	swap(T *a, T *b) {
-	T	tmp = *a;
+template <class T> void	swap(T &a, T &b) {
+	T	tmp = a;
 
-	*a = *b;
-	*b = tmp;
+	a = b;
+	b = tmp;
 }
 
 template <class T> T	min(T &a, T &b) {

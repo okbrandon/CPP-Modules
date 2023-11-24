@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:14:43 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/24 16:33:25 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:00:35 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,26 @@
 #define BWHT	"\e[1;37m"
 #define CRESET	"\e[0m"
 
+void	testSubject(void) {
+	std::cout << BWHT "\n>>> RUNNING SUBJECT TESTS\n" CRESET << std::endl;
+	/* Subject tests */
+	int	a = 2;
+	int	b = 3;
+
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	
+	std::string	c = "chaine1";
+	std::string	d = "chaine2";
+
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+}
+
 void	testSwap(void) {
 	std::cout << BWHT "\n>>> RUNNING SWAP TESTS\n" CRESET << std::endl;
 	/* Test with integers */
@@ -31,7 +51,7 @@ void	testSwap(void) {
 		int	b = 2;
 
 		std::cout << "a = " BCYN << a << CRESET " | b = " BCYN << b << CRESET << std::endl;
-		swap(&a, &b);
+		::swap(a, b);
 		std::cout << "a = " BCYN << a << CRESET " | b = " BCYN << b << CRESET << std::endl;
 	}
 	/* Test with character */
@@ -42,7 +62,7 @@ void	testSwap(void) {
 		char	b = 'b';
 
 		std::cout << "a = '" BCYN << a << CRESET "' | b = '" BCYN << b << CRESET "'" << std::endl;
-		swap(&a, &b);
+		::swap(a, b);
 		std::cout << "a = '" BCYN << a << CRESET "' | b = '" BCYN << b << CRESET "'" << std::endl;
 	}
 	/* Test with string */
@@ -53,7 +73,7 @@ void	testSwap(void) {
 		std::string	b = "World";
 
 		std::cout << "a = \"" BCYN << a << CRESET "\" | b = \"" BCYN << b << CRESET "\"" << std::endl;
-		swap(&a, &b);
+		::swap(a, b);
 		std::cout << "a = \"" BCYN << a << CRESET "\" | b = \"" BCYN << b << CRESET "\"" << std::endl;
 	}
 
@@ -72,7 +92,7 @@ void	testMin(void) {
 		int	b = 2;
 
 		std::cout << "a = " BCYN << a << CRESET " | b = " BCYN << b << CRESET << std::endl;
-		std::cout << "min(a, b) = " BCYN << min(a, b) << CRESET << std::endl;
+		std::cout << "min(a, b) = " BCYN << ::min(a, b) << CRESET << std::endl;
 	}
 	/* Test with character */
 	std::cout << BWHT << "-------" << CRESET << std::endl;
@@ -82,7 +102,7 @@ void	testMin(void) {
 		char	b = 'b';
 
 		std::cout << "a = '" BCYN << a << CRESET "' | b = '" BCYN << b << CRESET "'" << std::endl;
-		std::cout << "min(a, b) = '" BCYN << min(a, b) << CRESET "'" << std::endl;
+		std::cout << "min(a, b) = '" BCYN << ::min(a, b) << CRESET "'" << std::endl;
 	}
 	/* Test with string */
 	std::cout << BWHT << "-------" << CRESET << std::endl;
@@ -92,7 +112,7 @@ void	testMin(void) {
 		std::string	b = "World";
 
 		std::cout << "a = \"" BCYN << a << CRESET "\" | b = \"" BCYN << b << CRESET "\"" << std::endl;
-		std::cout << "min(a, b) = \"" BCYN << min(a, b) << CRESET "\"" << std::endl;
+		std::cout << "min(a, b) = \"" BCYN << ::min(a, b) << CRESET "\"" << std::endl;
 	}
 
 	/* Tests done */
@@ -110,7 +130,7 @@ void	testMax(void) {
 		int	b = 2;
 
 		std::cout << "a = " BCYN << a << CRESET " | b = " BCYN << b << CRESET << std::endl;
-		std::cout << "max(a, b) = " BCYN << max(a, b) << CRESET << std::endl;
+		std::cout << "max(a, b) = " BCYN << ::max(a, b) << CRESET << std::endl;
 	}
 	/* Test with character */
 	std::cout << BWHT << "-------" << CRESET << std::endl;
@@ -120,7 +140,7 @@ void	testMax(void) {
 		char	b = 'b';
 
 		std::cout << "a = '" BCYN << a << CRESET "' | b = '" BCYN << b << CRESET "'" << std::endl;
-		std::cout << "max(a, b) = '" BCYN << max(a, b) << CRESET "'" << std::endl;
+		std::cout << "max(a, b) = '" BCYN << ::max(a, b) << CRESET "'" << std::endl;
 	}
 	/* Test with string */
 	std::cout << BWHT << "-------" << CRESET << std::endl;
@@ -130,7 +150,7 @@ void	testMax(void) {
 		std::string	b = "World";
 
 		std::cout << "a = \"" BCYN << a << CRESET "\" | b = \"" BCYN << b << CRESET "\"" << std::endl;
-		std::cout << "max(a, b) = \"" BCYN << max(a, b) << CRESET "\"" << std::endl;
+		std::cout << "max(a, b) = \"" BCYN << ::max(a, b) << CRESET "\"" << std::endl;
 	}
 
 	/* Tests done */
@@ -139,6 +159,7 @@ void	testMax(void) {
 }
 
 int	main(void) {
+	testSubject();
 	testSwap();
 	testMin();
 	testMax();
