@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:17:24 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/24 16:59:24 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/11/24 17:08:00 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ template <class T> void	swap(T &a, T &b) {
 	b = tmp;
 }
 
-template <class T> T	min(T &a, T &b) {
+template <class T> const T	min(const T &a, const T &b) {
 	return (a < b ? a : b);
 }
 
-template <class T> T	max(T &a, T &b) {
+template <class T> const T	max(const T &a, const T &b) {
 	return (a > b ? a : b);
 }
 
