@@ -1,0 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/24 10:44:38 by bsoubaig          #+#    #+#             */
+/*   Updated: 2023/11/24 10:51:17 by bsoubaig         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Serializer.hpp"
+
+# define BRED	"\e[1;31m"
+# define BGRN	"\e[1;32m"
+# define BCYN	"\e[1;36m"
+# define BWHT	"\e[1;37m"
+# define CRESET	"\e[0m"
+
+void	testSubject(void) {
+	std::cout << BWHT "\n>>> RUNNING SUBJECT TESTS\n" CRESET << std::endl;
+	/* Serialize then deserialize and compares the original pointer */
+	Data	data;
+
+	data._id = 42;
+	std::cout <<  "Original pointer: " BCYN << &data << CRESET << std::endl;
+	/* Serialize & Deserialize */
+	uintptr_t	serialized = Serializer::serialize(&data);
+	Data	*deserialized = Serializer::deserialize(serialized);
+	
+	std::cout << "Serialized data: " BCYN << serialized << CRESET << std::endl;
+	std::cout << "Deserialized pointer: " BCYN << deserialized << CRESET << std::endl;
+	/* Comparison */
+	if (deserialized == &data)
+		std::cout << BGRN "[OK] " CRESET << "Deserialized pointer is equal to original pointer" << std::endl;
+	else
+		std::cout << BRED "[KO] " CRESET << "Deserialized pointer is not equal to original pointer" << std::endl;
+}
+
+int	main(void) {
+	testSubject();
+	return (0);
+}
