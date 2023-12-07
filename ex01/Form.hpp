@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:36:51 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 15:09:47 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:01:24 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,14 @@ class Form {
 
 	private:
 		const std::string	_name;
-		const int			_requiredGrade;
+		const int			_requiredSign;
+		const int			_requiredExec;
 		bool				_signed;
 
 	public:
 		/* Constructors & Destructors */
 		Form(void);
-		Form(const std::string &name, const int requiredGrade);
+		Form(const std::string &name, const int requiredSign, const int requiredExec);
 		Form(const Form &form);
 		~Form(void);
 
@@ -53,7 +54,8 @@ class Form {
 
 		/* Getters */
 		const std::string	&getName(void) const;
-		const int			&getRequiredGrade(void) const;
+		const int			&getRequiredSign(void) const;
+		const int			&getRequiredExec(void) const;
 		bool				isSigned(void) const;
 
 		/* Overloaded operators */

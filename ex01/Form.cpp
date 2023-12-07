@@ -6,32 +6,34 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 14:00:10 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 15:17:51 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/12/07 12:03:54 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 /* Constructors & Destructors */
-Form::Form(void): _name("unidentified"), _requiredGrade(150) {
+Form::Form(void): _name("unidentified"), _requiredSign(150), _requiredExec(150) {
 	this->_signed = false;
 	std::cout << BGRN "[Form] " CRESET "New object called '" BCYN << \
-		this->_name << CRESET "' with required grade " BCYN << \
-		this->_requiredGrade << CRESET "..." << std::endl;
+		this->_name << CRESET "' with required sign " BCYN << \
+		this->_requiredSign << CRESET " and required exec " BCYN << \
+		this->_requiredExec << CRESET "..." << std::endl;
 }
 
-Form::Form(const std::string &name, const int requiredGrade): _name(name), _requiredGrade(requiredGrade) {
-	if (requiredGrade < 1)
+Form::Form(const std::string &name, const int requiredSign, const int requiredExec): _name(name), _requiredSign(requiredSign), _requiredExec(requiredExec) {
+	if (requiredSign < 1 || requiredExec < 1)
 		throw Form::GradeTooHighException();
-	else if (requiredGrade > 150)
+	else if (requiredSign > 150 || requiredExec > 150)
 		throw Form::GradeTooLowException();
 	this->_signed = false;
 	std::cout << BGRN "[Form] " CRESET "New object called '" BCYN << \
-		this->_name << CRESET "' with required grade " BCYN << \
-		this->_requiredGrade << CRESET "..." << std::endl;
+		this->_name << CRESET "' with required sign " BCYN << \
+		this->_requiredSign << CRESET " and required exec " BCYN << \
+		this->_requiredExec << CRESET "..." << std::endl;
 }
 
-Form::Form(const Form &form): _name(form.getName()), _requiredGrade(form.getRequiredGrade()) {
+Form::Form(const Form &form): _name(form.getName()), _requiredSign(form.getRequiredSign()), _requiredExec(form.getRequiredExec()) {
 	*this = form;
 	std::cout << BGRN "[Form] " CRESET "Copied object called '" BCYN << \
 		this->_name << CRESET "'..." << std::endl;
@@ -53,7 +55,7 @@ const char*	Form::GradeTooLowException::what() const throw() {
 
 /* Functions */
 void	Form::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() > this->_requiredGrade)
+	if (bureaucrat.getGrade() > this->_requiredSign)
 		throw Form::GradeTooLowException();
 	if (!this->_signed)
 		this->_signed = true;
@@ -64,8 +66,12 @@ const std::string	&Form::getName(void) const {
 	return (this->_name);
 }
 
-const int			&Form::getRequiredGrade(void) const {
-	return (this->_requiredGrade);
+const int			&Form::getRequiredSign(void) const {
+	return (this->_requiredSign);
+}
+
+const int			&Form::getRequiredExec(void) const {
+	return (this->_requiredExec);
 }
 
 bool				Form::isSigned(void) const {
@@ -80,8 +86,9 @@ Form	&Form::operator=(const Form &form) {
 }
 
 std::ostream	&operator<<(std::ostream &out, const Form &form) {
-	out << BYEL "[Form] " BCYN << form.getName() << \
-		CRESET ", required grade " BCYN << form.getRequiredGrade() << \
+	out << BYEL "[AForm] " BCYN << form.getName() << \
+		CRESET ", required sign " BCYN << form.getRequiredSign() << \
+		CRESET ", required exec " BCYN << form.getRequiredExec() << \
 		CRESET ", is signed " << (!form.isSigned() ? BRED"no" : BGRN"yes") << CRESET ".";
 	return (out);
 }
