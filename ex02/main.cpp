@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:54:36 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/29 14:32:05 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/12/07 14:23:55 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,28 @@ void	testExceptions(void) {
 void	testValid(void) {
 	std::cout << BWHT "\n>>> RUNNING VALID TESTS\n" CRESET << std::endl;
 	/* Accessing valid index */
+	std::cout << BWHT << "-------" << CRESET << std::endl;
+	std::cout << BWHT "[!] Accessing index 2 in array of 4" CRESET << std::endl;
 	try {
 		Array<int>	arr(4);
 
 		std::cout << "arr[2] before: " BCYN << arr[2] << CRESET << std::endl;
 		arr[2] = 42;
 		std::cout << "arr[2] after: " BCYN << arr[2] << CRESET << std::endl;
+	} catch (std::exception &exception) {
+		std::cout << BRED "[Array] " CRESET "Exception caught!" << std::endl;
+		std::cout << exception.what() << std::endl;
+	}
+	/* Interating over array of 4 */
+	std::cout << BWHT << "-------" << CRESET << std::endl;
+	std::cout << BWHT "[!] Interating in array of 4" CRESET << std::endl;
+	try {
+		Array<char>	arr(4);
+
+		for (int i = 0; i < 4; i++)
+			arr[i] = 'a' + i;
+		for (int i = 0; i < 4; i++)
+			std::cout << "arr[" << i << "] = " BCYN << arr[i] << CRESET << std::endl;
 	} catch (std::exception &exception) {
 		std::cout << BRED "[Array] " CRESET "Exception caught!" << std::endl;
 		std::cout << exception.what() << std::endl;
