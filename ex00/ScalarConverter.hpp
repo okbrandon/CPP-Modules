@@ -37,6 +37,11 @@ enum e_type {
 class ScalarConverter {
 
 	private:
+		/* Constructors & Destructors */
+		ScalarConverter(void);
+		ScalarConverter(ScalarConverter const &scalarConverter);
+		~ScalarConverter(void);
+
 		/* Converters */
 		static char			_toChar(std::string &literal);
 		static int			_toInt(std::string &literal);
@@ -57,6 +62,9 @@ class ScalarConverter {
 		static bool			_isDouble(std::string &literal);
 		static e_type		_getType(std::string &literal);
 		static std::string	_stringFromEnum(e_type type);
+
+		/* Overloaded operators */
+		ScalarConverter	&operator=(ScalarConverter const &scalarConverter);
 	
 	public:
 		/* Main converter */

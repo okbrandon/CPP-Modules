@@ -12,6 +12,15 @@
 
 #include "ScalarConverter.hpp"
 
+/* Constructors & Destructors */
+ScalarConverter::ScalarConverter(void) {}
+
+ScalarConverter::ScalarConverter(ScalarConverter const &scalarConverter) {
+	(void) scalarConverter;
+}
+
+ScalarConverter::~ScalarConverter(void) {}
+
 /* Exceptions */
 const char* ScalarConverter::UnknownTypeException::what() const throw() {
 	return ("Provided literal is not a valid type");
@@ -210,4 +219,9 @@ std::string	ScalarConverter::_stringFromEnum(e_type type) {
 	if (type == DOUBLE)
 		return ("DOUBLE");
 	return ("UNKNOWN");
+}
+
+/* Overloaded operators */
+ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &scalarConverter) {
+	return (*this);
 }
