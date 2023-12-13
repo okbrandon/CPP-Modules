@@ -12,11 +12,11 @@
 
 #include "Serializer.hpp"
 
-# define BRED	"\e[1;31m"
-# define BGRN	"\e[1;32m"
-# define BCYN	"\e[1;36m"
-# define BWHT	"\e[1;37m"
-# define CRESET	"\e[0m"
+# define BRED	"\033[1;31m"
+# define BGRN	"\033[1;32m"
+# define BCYN	"\033[1;36m"
+# define BWHT	"\033[1;37m"
+# define CRESET	"\033[0m"
 
 void	testSubject(void) {
 	std::cout << BWHT "\n>>> RUNNING SUBJECT TESTS\n" CRESET << std::endl;

@@ -14,7 +14,7 @@
 # define SERIALIZER_HPP
 
 # include <iostream>
-# include <stdlib.h>
+# include <stdint.h>
 # include "Data.h"
 
 class Serializer {

@@ -32,8 +32,8 @@ void	ScalarConverter::convert(std::string &literal) {
 
 	if (type == UNKNOWN)
 		throw ScalarConverter::UnknownTypeException();
-	std::cout << BYEL "[ScalarConverter] " CRESET "Type detected: " BCYN << \
-		_stringFromEnum(type) << CRESET << std::endl;
+	std::cout << BYEL "[ScalarConverter] " << CRESET << "Type detected: " << \
+		BCYN << _stringFromEnum(type) << CRESET << std::endl;
 	if (literal.size() == 1 && !std::isdigit(literal.at(0)) && std::isprint(literal.at(0))) {
 		std::cout << "char: '" << literal.at(0) << "'" << std::endl;
 		std::cout << "int: " << static_cast<int>(literal.at(0)) << std::endl;

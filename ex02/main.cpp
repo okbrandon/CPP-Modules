@@ -11,20 +11,20 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <stdlib.h>
+#include <stdint.h>
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
 
-#define BRED	"\e[1;31m"
-#define BGRN	"\e[1;32m"
-#define BYEL	"\e[1;33m"
-#define BBLU	"\e[1;34m"
-#define BMAG	"\e[1;35m"
-#define BCYN	"\e[1;36m"
-#define BWHT	"\e[1;37m"
-#define CRESET	"\e[0m"
+#define BRED	"\033[1;31m"
+#define BGRN	"\033[1;32m"
+#define BYEL	"\033[1;33m"
+#define BBLU	"\033[1;34m"
+#define BMAG	"\033[1;35m"
+#define BCYN	"\033[1;36m"
+#define BWHT	"\033[1;37m"
+#define CRESET	"\033[0m"
 
 Base	*generate(void) {
 	int	rand = std::rand() % 3;
