@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <iostream>
-#include <cstdlib>
+#include <stdlib.h>
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
