@@ -223,5 +223,6 @@ std::string	ScalarConverter::_stringFromEnum(e_type type) {
 
 /* Overloaded operators */
 ScalarConverter	&ScalarConverter::operator=(ScalarConverter const &scalarConverter) {
+	(void) scalarConverter;
 	return (*this);
 }
