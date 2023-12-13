@@ -12,6 +12,17 @@
 
 #include "Serializer.hpp"
 
+/* Constructors & Destructors */
+Serializer::Serializer(void) {}
+
+Serializer::Serializer(Serializer const &serializer) {
+	(void) serializer;
+}
+
+Serializer::~Serializer(void) {}
+
+/* Functions */
+
 uintptr_t	Serializer::serialize(Data* ptr)
 {
 	return (reinterpret_cast<uintptr_t>(ptr));
@@ -20,4 +31,10 @@ uintptr_t	Serializer::serialize(Data* ptr)
 Data*		Serializer::deserialize(uintptr_t raw)
 {
 	return (reinterpret_cast<Data*>(raw));
+}
+
+/* Overloaded operators */
+Serializer	&Serializer::operator=(Serializer const &serializer) {
+	(void) serializer;
+	return (*this);
 }

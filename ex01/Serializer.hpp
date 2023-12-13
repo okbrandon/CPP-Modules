@@ -20,8 +20,16 @@
 class Serializer {
 
 	private:
+		/* Constructors & Destructors */
+		Serializer(void);
+		Serializer(Serializer const &serializer);
+		~Serializer(void);
+
+		/* Overloaded operators */
+		Serializer	&operator=(Serializer const &serializer);
 
 	public:
+		/* Functions */
 		static uintptr_t	serialize(Data* ptr);
 		static Data*		deserialize(uintptr_t raw);
 
