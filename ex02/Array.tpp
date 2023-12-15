@@ -28,7 +28,7 @@ template <class T> Array<T>::Array(unsigned int n) {
 
 template <class T> Array<T>::Array(const Array &origin) {
 	this->_length = origin._length;
-	this->_array = new Array[origin._length];
+	this->_array = new T[origin._length];
 	for (unsigned int i = 0; i < origin._length; i++)
 		this->_array[i] = origin._array[i];
 }

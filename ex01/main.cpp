@@ -12,14 +12,14 @@
 
 #include "iter.hpp"
 
-#define BRED	"\e[1;31m"
-#define BGRN	"\e[1;32m"
-#define BYEL	"\e[1;33m"
-#define BBLU	"\e[1;34m"
-#define BMAG	"\e[1;35m"
-#define BCYN	"\e[1;36m"
-#define BWHT	"\e[1;37m"
-#define CRESET	"\e[0m"
+#define BRED	"\033[1;31m"
+#define BGRN	"\033[1;32m"
+#define BYEL	"\033[1;33m"
+#define BBLU	"\033[1;34m"
+#define BMAG	"\033[1;35m"
+#define BCYN	"\033[1;36m"
+#define BWHT	"\033[1;37m"
+#define CRESET	"\033[0m"
 
 void	testPrint(void) {
 	std::cout << BWHT "\n>>> RUNNING PRINT TESTS\n" CRESET << std::endl;
@@ -30,7 +30,7 @@ void	testPrint(void) {
 		int	arr[6] = {1, 2, 3, 4, 5, 6};
 
 		std::cout << BCYN << std::endl;
-		::iter(arr, 6, &print);
+		::iter(arr, 6, &display<int>);
 		std::cout << CRESET << std::endl;
 	}
 	/* Printing each elem of char array */
@@ -40,7 +40,7 @@ void	testPrint(void) {
 		char	arr[5] = {'a', 'b', 'c', 'd', 'e'};
 		
 		std::cout << BCYN << std::endl;
-		::iter(arr, 5, &print);
+		::iter(arr, 5, &display<char>);
 		std::cout << CRESET << std::endl;
 	}
 	/* Printing each elem of string array */
@@ -50,7 +50,7 @@ void	testPrint(void) {
 		std::string	arr[3] = {"Hello", "World", "!"};
 
 		std::cout << BCYN << std::endl;
-		::iter(arr, 3, &print);
+		::iter(arr, 3, &display<std::string>);
 		std::cout << CRESET << std::endl;
 	}
 
@@ -69,12 +69,12 @@ void	testIncr(void) {
 
 		std::cout << BYEL "Before incrementation..." << CRESET << std::endl;
 		std::cout << BCYN << std::endl;
-		::iter(arr, 6, &print);
+		::iter(arr, 6, &display<int>);
 		std::cout << CRESET << std::endl;
-		::iter(arr, 6, &incr);
+		::iter(arr, 6, &incr<int>);
 		std::cout << BYEL "After incrementation..." << CRESET << std::endl;
 		std::cout << BCYN << std::endl;
-		::iter(arr, 6, &print);
+		::iter(arr, 6, &display<int>);
 		std::cout << CRESET << std::endl;
 	}
 	/* Incrementing each elem of char array */
@@ -85,12 +85,12 @@ void	testIncr(void) {
 		
 		std::cout << BYEL "Before incrementation..." << CRESET << std::endl;
 		std::cout << BCYN << std::endl;
-		::iter(arr, 5, &print);
+		::iter(arr, 5, &display<char>);
 		std::cout << CRESET << std::endl;
-		::iter(arr, 5, &incr);
+		::iter(arr, 5, &incr<char>);
 		std::cout << BYEL "After incrementation..." << CRESET << std::endl;
 		std::cout << BCYN << std::endl;
-		::iter(arr, 5, &print);
+		::iter(arr, 5, &display<char>);
 		std::cout << CRESET << std::endl;
 	}
 
@@ -109,12 +109,12 @@ void	testDecr(void) {
 
 		std::cout << BYEL "Before decrementation..." << CRESET << std::endl;
 		std::cout << BCYN << std::endl;
-		::iter(arr, 6, &print);
+		::iter(arr, 6, &display<int>);
 		std::cout << CRESET << std::endl;
-		::iter(arr, 6, &decr);
+		::iter(arr, 6, &decr<int>);
 		std::cout << BYEL "After decrementation..." << CRESET << std::endl;
 		std::cout << BCYN << std::endl;
-		::iter(arr, 6, &print);
+		::iter(arr, 6, &display<int>);
 		std::cout << CRESET << std::endl;
 	}
 	/* Decrementing each elem of char array */
@@ -125,12 +125,12 @@ void	testDecr(void) {
 		
 		std::cout << BYEL "Before decrementation..." << CRESET << std::endl;
 		std::cout << BCYN << std::endl;
-		::iter(arr, 5, &print);
+		::iter(arr, 5, &display<char>);
 		std::cout << CRESET << std::endl;
-		::iter(arr, 5, &decr);
+		::iter(arr, 5, &decr<char>);
 		std::cout << BYEL "After decrementation..." << CRESET << std::endl;
 		std::cout << BCYN << std::endl;
-		::iter(arr, 5, &print);
+		::iter(arr, 5, &display<char>);
 		std::cout << CRESET << std::endl;
 	}
 
