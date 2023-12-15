@@ -22,6 +22,6 @@ int	main(int argc, char **argv) {
 			std::cout << exception.what() << std::endl;
 		}
 	}
-	else std::cout << BRED "[ScalarConverter] " CRESET "Usage: ./scalarConverter <literal>" << std::endl;
+	else std::cout << BRED "[ScalarConverter] " CRESET "Usage: ./ex00 <literal>" << std::endl;
 	return (0);
 }
