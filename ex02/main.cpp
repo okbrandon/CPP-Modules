@@ -6,12 +6,13 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 11:11:53 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/24 11:34:37 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/12/19 14:04:55 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <stdint.h>
+#include <cstdlib>
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
