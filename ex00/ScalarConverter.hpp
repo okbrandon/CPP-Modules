@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:02:54 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/23 16:13:26 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/12/19 15:59:18 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-# include <limits>
+# include <limits.h>
+# include <float.h>
 # include "StupidTypeConvertions.hpp"
 
 # define BRED	"\033[1;31m"
