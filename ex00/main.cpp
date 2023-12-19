@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 18:39:59 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/12/15 19:35:35 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:13:04 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	testExceptions(void) {
 	}
 	/* Test with list */
 	std::cout << BWHT << "-------" << CRESET << std::endl;
-	std::cout << BWHT "[!] Testing with type int." CRESET << std::endl;
+	std::cout << BWHT "[!] Testing with list." CRESET << std::endl;
 	try {
 		std::list<char>	list;
 		char			search = 'z';
@@ -93,7 +93,7 @@ void	testValid(void) {
 	}
 	/* Test with list */
 	std::cout << BWHT << "-------" << CRESET << std::endl;
-	std::cout << BWHT "[!] Testing with type int." CRESET << std::endl;
+	std::cout << BWHT "[!] Testing with list." CRESET << std::endl;
 	try {
 		std::list<char>	list;
 		char			search = 'd';
