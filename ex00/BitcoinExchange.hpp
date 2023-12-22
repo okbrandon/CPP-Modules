@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:40:52 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/12/21 17:59:37 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2023/12/22 16:56:33 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ class BitcoinExchange {
 		std::map<std::string, float>	_database;
 
 		/* Private functions */
-		int		_ft_stoi(std::string &str);
-		float	_ft_stof(std::string &str);
+		int		_ft_stoi(const std::string &str);
+		float	_ft_stof(const std::string &str);
+		float	_getExchangeRate(const std::string &date);
+		bool	_isDateValid(const std::string &date);
 
 	public:
 		/* Constructors & Destructors */
@@ -51,6 +53,7 @@ class BitcoinExchange {
 
 		/* Functions */
 		void	initDatabase(std::string fileName);
+		void	printExchange(std::string fileName);
 
 		/* Overloaded operators */
 		BitcoinExchange	&operator=(const BitcoinExchange &origin);
