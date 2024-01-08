@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:05:00 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/29 14:05:07 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:03:01 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ARRAY_HPP
 
 # include <iostream>
+# include <cstdlib>
 
 template <class T> class Array {
 
