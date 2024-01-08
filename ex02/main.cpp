@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 13:54:36 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/12/07 14:23:55 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:00:32 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	testValid(void) {
 		std::cout << BRED "[Array] " CRESET "Exception caught!" << std::endl;
 		std::cout << exception.what() << std::endl;
 	}
-	/* Interating over array of 4 */
+	/* Iterating over array of 4 */
 	std::cout << BWHT << "-------" << CRESET << std::endl;
 	std::cout << BWHT "[!] Interating in array of 4" CRESET << std::endl;
 	try {
@@ -85,8 +85,40 @@ void	testValid(void) {
 	std::cout << BWHT "[!] Valid tests are done." CRESET << std::endl;
 }
 
+/* Complex class */
+class Complex {
+	
+	private:
+		int	_value;
+
+	public:
+		Complex(void): _value(0) {}
+		Complex(int value): _value(value) {}
+		Complex	&operator=(const Complex &origin) { _value = origin._value; return (*this); }
+		int		getValue(void) const { return _value; }
+		void	setValue(int value) { _value = value; }
+
+};
+
+void	testComplexType(void) {
+	std::cout << BWHT "\n>>> RUNNING COMPLEX TESTS\n" CRESET << std::endl;
+	/* Iterating over array of Complex */
+	try {
+		Array<Complex>	arr(4);
+
+		for (int i = 0; i < 4; i++)
+			arr[i].setValue(i + 1);
+		for (int i = 0; i < 4; i++)
+			std::cout << "arr[" << i << "] = " BCYN << arr[i].getValue() << CRESET << std::endl;
+	} catch (std::exception &exception) {
+		std::cout << BRED "[Array] " CRESET "Exception caught!" << std::endl;
+		std::cout << exception.what() << std::endl;
+	}
+}
+
 int	main(void) {
 	testExceptions();
 	testValid();
+	testComplexType();
 	return (0);
 }
