@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 16:31:13 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/12/19 18:46:39 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:12:22 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int	Span::longestSpan(void) {
 	int					longestSpan = 0;
 
 	std::sort(temp.begin(), temp.end());
-	longestSpan = temp[temp.size() - 1] - temp[temp.size()];
+	longestSpan = temp[temp.size() - 1] - temp[0];
 	return (longestSpan);
 }
 
