@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:39:27 by bsoubaig          #+#    #+#             */
-/*   Updated: 2024/01/11 13:00:29 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:12:00 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ class PmergeMe {
 
 		/* Private functions */
 		bool	_isExpressionValid(int argc, char **argv);
-		template <class T> void		_merge(T &c, int left, int median, int right);
-		template <class T> void		_insertSort(T &c, int left, int right);
-		template <class T> double	_sort(T &c);
-		template <class T> void		_print(T &c);
+		template <class T> void		_sort(T &c, T &leftHalf, T &rightHalf);
+		template <class T> void		_divideAndSort(T &c);
+		template <class T> void		_print(std::string prefix, T &c);
+		template <class T> double	_run(T &c);
+		template <class T> bool		_isSorted(T &c);
 
 		/* Overloaded operators */
 		PmergeMe	&operator=(const PmergeMe &origin);

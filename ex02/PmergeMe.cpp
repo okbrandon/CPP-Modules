@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:47:31 by bsoubaig          #+#    #+#             */
-/*   Updated: 2024/01/11 13:01:18 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/12 14:16:36 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ PmergeMe::PmergeMe(void) {}
 PmergeMe::PmergeMe(int argc, char **argv) {
 	std::deque<int>		deque;
 	std::vector<int>	vect;
+	double	vectProcessTime;
+	double	dequeProcessTime;
 
 	if (argc < 3)
 		throw PmergeMe::NotEnoughArgsException();
@@ -30,28 +32,23 @@ PmergeMe::PmergeMe(int argc, char **argv) {
 		deque.push_back(extractedNum);
 		vect.push_back(extractedNum);
 	}
-	
-	// Displaying before sorting
-	std::cout << BYEL "Before: " CRESET;
-	_print(vect);
-	std::cout << std::endl;
 
-	// Sorting each container
-	double	vectProcessTime = _sort(vect);
-	double	dequeProcessTime = _sort(deque);
-
-	// Displaying after sorting
-	std::cout << BYEL "After: " CRESET;
-	_print(vect);
-	std::cout << std::endl;
-
-	// Displaying process time
+	_print(BYEL "Before: " CRESET, vect);
+	vectProcessTime = _run(vect);
+	dequeProcessTime = _run(deque);
+	_print(BYEL "After: " CRESET, vect);
 	std::cout << "Time to process a range of " << vect.size() \
 		<< " elements with std::vector : " BCYN \
-		<< std::fixed << std::setprecision(5) << vectProcessTime << " us" CRESET << std::endl;
+		<< std::fixed << std::setprecision(5) << vectProcessTime << " us" CRESET \
+		<< std::endl;
 	std::cout << "Time to process a range of " << vect.size() \
 		<< " elements with std::deque : " BCYN \
-		<< std::fixed << std::setprecision(5) << dequeProcessTime << " us" CRESET << std::endl;
+		<< std::fixed << std::setprecision(5) << dequeProcessTime << " us" CRESET \
+		<< std::endl;
+	std::cout << "Are containers sorted? [" \
+		<< (_isSorted(vect) && _isSorted(deque) ? BGRN "YES!" : BRED "NO!") \
+		<< CRESET "]" \
+		<< std::endl;
 }
 
 PmergeMe::PmergeMe(const PmergeMe &origin) {
