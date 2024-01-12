@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 15:47:31 by bsoubaig          #+#    #+#             */
-/*   Updated: 2024/01/12 14:16:36 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:14:25 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ PmergeMe::PmergeMe(int argc, char **argv) {
 		throw PmergeMe::NotEnoughArgsException();
 	if (!_isExpressionValid(argc, argv))
 		throw PmergeMe::InvalidNumbersException();
-	// Filling the deque and vector
+	/* Filling the deque and vector */
 	for (int i = 1; i < argc; i++) {
 		int	extractedNum = std::atoi(argv[i]);
 
@@ -60,12 +60,12 @@ PmergeMe::~PmergeMe(void) {}
 /* Private functions */
 bool	PmergeMe::_isExpressionValid(int argc, char **argv) {
 	for (int i = 1; i < argc; i++) {
-		// If it is only intergers
+		/* If it is only intergers */
 		for (size_t j = 0; j < std::strlen(argv[i]); j++) {
 			if (!std::isdigit(argv[i][j]))
 				return (false);
 		}
-		// Check if it is only positive
+		/* Check if it is only positive */
 		int	extractedNum = std::atoi(argv[i]);
 		if (extractedNum <= 0)
 			return (false);

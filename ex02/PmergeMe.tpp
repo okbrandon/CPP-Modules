@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 19:31:34 by bsoubaig          #+#    #+#             */
-/*   Updated: 2024/01/12 14:15:38 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/12 16:14:06 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ template <class T> void PmergeMe::_sort(T &c, T &leftHalf, T &rightHalf) {
 	class T::iterator leftIt = leftHalf.begin();
 	class T::iterator rightIt = rightHalf.begin();
 
-	// Comparing elements and sorting them
+	/* Comparing elements and sorting them */
 	while (leftIt != leftHalf.end() && rightIt != rightHalf.end()) {
 		if (*leftIt < *rightIt) {
 			c.push_back(*leftIt);
@@ -27,7 +27,7 @@ template <class T> void PmergeMe::_sort(T &c, T &leftHalf, T &rightHalf) {
 			rightIt++;  
 		}
 	}
-	// Adding remaining elements out of range
+	/* Adding remaining elements out of range */
 	while (leftIt != leftHalf.end()) {
 		c.push_back(*leftIt);
 		leftIt++;
@@ -42,7 +42,7 @@ template <class T> void	PmergeMe::_divideAndSort(T &c) {
 	if (c.size() <= 1)
 		return ;
 	class T::iterator	median = c.begin();
-	
+
 	std::advance(median, c.size() / 2);
 	T	leftHalf(c.begin(), median);
 	T	rightHalf(median, c.end());
@@ -58,12 +58,12 @@ template <class T> double	PmergeMe::_run(T &c) {
 	PmergeMe	object;
 	double		processTime;
 
-	// Running sort
+	/* Running sort */
 	clock_t	start = clock();
 	object._divideAndSort(c);
 	clock_t	end = clock();
 
-	// Calculating execution time
+	/* Calculating execution time */
 	processTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000.0;
 	return (processTime);
 }
