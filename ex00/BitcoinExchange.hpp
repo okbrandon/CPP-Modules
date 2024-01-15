@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:40:52 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/12/22 16:56:33 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:41:04 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class BitcoinExchange {
 		float	_ft_stof(const std::string &str);
 		float	_getExchangeRate(const std::string &date);
 		bool	_isDateValid(const std::string &date);
+		bool	_isValueValid(const std::string &value);
 
 	public:
 		/* Constructors & Destructors */

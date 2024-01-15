@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:54:45 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/12/22 16:58:54 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:46:23 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,22 @@ bool	BitcoinExchange::_isDateValid(const std::string &date) {
 	return (true);
 }
 
+bool	BitcoinExchange::_isValueValid(const std::string &value) {
+	bool	hasDot = false;
+
+	if (value.empty() || !value.c_str())
+		return (false);
+	for (size_t i = 1; i < value.size(); i++) {
+		if (value.at(i) == '.') {
+			if (hasDot)
+				return (false);
+			hasDot = true;
+		} else if (!std::isdigit(value.at(i)))
+			return (false);
+	}
+	return (true);
+}
+
 /* Exceptions */
 const char*	BitcoinExchange::FileReadException::what() const throw() {
 	return ("An error occurred while reading the file.");
@@ -120,10 +136,16 @@ void	BitcoinExchange::printExchange(std::string fileName) {
 		
 		// Retrieving date and value
 		std::string	date = line.substr(0, delimiter - 1);
-		float		value = _ft_stof(line.substr(delimiter + 1));
+		std::string	valueAsString = line.substr(delimiter + 1);
+		float		value = _ft_stof(valueAsString);
 		
 		if (!_isDateValid(date)) {
 			std::cout << BRED "Error: " CRESET "date is wrong => " BCYN \
+				<< line << CRESET << std::endl;
+			continue;
+		}
+		if (!_isValueValid(valueAsString)) {
+			std::cout << BRED "Error: " CRESET "bad input => " BCYN \
 				<< line << CRESET << std::endl;
 			continue;
 		}
