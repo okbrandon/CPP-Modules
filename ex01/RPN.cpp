@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:37:05 by bsoubaig          #+#    #+#             */
-/*   Updated: 2024/01/15 17:52:21 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:53:47 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,13 @@ long	RPN::run(std::string &expression) {
 			// Pushing the result
 			this->_stack.push(result);
 		}
-		else if (isOperand) 
-			this->_stack.push(_ft_stoi(&expression.at(i)));
+		else if (isOperand) {
+			int	num = _ft_stoi(&expression.at(i));
+			
+			if (num > 9)
+				throw RPN::IncompleteExpressionException();
+			this->_stack.push(num);
+		}
 	}
 	result = this->_stack.top();
 	return (result);
