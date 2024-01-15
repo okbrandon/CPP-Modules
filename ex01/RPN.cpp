@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 15:37:05 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/12/28 18:33:37 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/15 17:52:21 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ const char*	RPN::DivisionByZeroException::what() const throw() {
 }
 
 const char*	RPN::IncompleteExpressionException::what() const throw() {
-	return ("Calculation expression is incomplete.");
+	return ("Calculation expression is invalid.");
 }
 
 /* Functions */
