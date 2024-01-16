@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/21 14:54:45 by bsoubaig          #+#    #+#             */
-/*   Updated: 2024/01/15 17:46:23 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/01/16 17:48:57 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,11 +144,6 @@ void	BitcoinExchange::printExchange(std::string fileName) {
 				<< line << CRESET << std::endl;
 			continue;
 		}
-		if (!_isValueValid(valueAsString)) {
-			std::cout << BRED "Error: " CRESET "bad input => " BCYN \
-				<< line << CRESET << std::endl;
-			continue;
-		}
 		if (value < 0) {
 			std::cout << BRED "Error: " CRESET "not a positive number." << std::endl;
 			continue;
@@ -157,6 +152,13 @@ void	BitcoinExchange::printExchange(std::string fileName) {
 			std::cout << BRED "Error: " CRESET "too large a number." << std::endl;
 			continue;
 		}
+		if (!_isValueValid(valueAsString)) {
+			std::cout << BRED "Error: " CRESET "bad input => " BCYN \
+				<< line << CRESET << std::endl;
+			continue;
+		}
+
+		// Calculating bitcoin amount
 		float	rate = _getExchangeRate(date);
 		std::cout << date << " => " << value << " = " BCYN << (rate * value) << CRESET << std::endl;
 	}
