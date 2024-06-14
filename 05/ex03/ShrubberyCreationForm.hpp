@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 11:41:24 by bsoubaig          #+#    #+#             */
-/*   Updated: 2024/06/14 14:20:12 by bsoubaig         ###   ########.fr       */
+/*   Created: 2023/11/20 16:06:19 by bsoubaig          #+#    #+#             */
+/*   Updated: 2024/06/14 14:15:24 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INTERN_HPP
-# define INTERN_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
 # include "AForm.hpp"
-# include "ShrubberyCreationForm.hpp"
-# include "RobotomyRequestForm.hpp"
-# include "PresidentialPardonForm.hpp"
+# include <fstream>
 
-class Intern {
-
+class ShrubberyCreationForm : public AForm {
+	
 	private:
+		std::string	_target;
 
 	public:
 		/* Constructors & Destructors */
-		Intern(void);
-		Intern(const Intern &intern);
-		~Intern(void);
-
-		/* Exceptions */
-		class FormNotFound: public std::exception {
-			public:
-				virtual const char* what() const throw();
-		};
+		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(const ShrubberyCreationForm &shrubberyCreationForm);
+		~ShrubberyCreationForm(void);
 
 		/* Functions */
-		AForm	*makeForm(std::string formName, std::string target) const;
+		virtual void	executeRequirements(Bureaucrat const &executor) const;
 
 		/* Overloaded operators */
-		Intern	&operator=(const Intern &intern);
+		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &shrubberyCreationForm);
 	
 };
 

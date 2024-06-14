@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 11:47:56 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/21 16:56:46 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:20:23 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ AForm	*Intern::makeForm(std::string formName, std::string target) const {
 	AForm	*forms[3];
 	AForm	*returned = NULL;
 
-	forms[0] = new ShruberryCreationForm(target);
+	forms[0] = new ShrubberyCreationForm(target);
 	forms[1] = new RobotomyRequestForm(target);
 	forms[2] = new PresidentialPardonForm(target);
 	for (int i = 0; i < 3; i++) {

@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:06:49 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/21 16:58:24 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:20:38 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void	testExceptions(void) {
 
 void	testValidForms(void) {
 	std::cout << BWHT "\n>>> RUNNING VALID-FORMS TESTS\n" CRESET << std::endl;
-	/* Making ShruberryCreationForm */
+	/* Making ShrubberyCreationForm */
 	std::cout << BWHT << "-------" << CRESET << std::endl;
 	try {
-		std::cout << BWHT "[!] Making ShruberryCreationForm." CRESET << std::endl;
+		std::cout << BWHT "[!] Making ShrubberyCreationForm." CRESET << std::endl;
 		Intern	someRandomIntern;
 		AForm	*ref;
 		
-		ref = someRandomIntern.makeForm("ShruberryCreationForm", "some target");
+		ref = someRandomIntern.makeForm("ShrubberyCreationForm", "some target");
 		delete ref;
 	} catch (std::exception &exception) {
 		std::cout << BRED "[Intern] " CRESET "Exception caught!" << std::endl;

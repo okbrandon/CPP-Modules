@@ -6,7 +6,7 @@
 #    By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/12 17:45:22 by bsoubaig          #+#    #+#              #
-#    Updated: 2023/11/21 11:07:52 by bsoubaig         ###   ########.fr        #
+#    Updated: 2024/06/14 14:16:07 by bsoubaig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ NAME			= ex02
 SRC_DIR			= ./
 SRCS			= Bureaucrat.cpp \
 				  AForm.cpp \
-				  ShruberryCreationForm.cpp \
+				  ShrubberyCreationForm.cpp \
 				  RobotomyRequestForm.cpp \
 				  PresidentialPardonForm.cpp \
 				  main.cpp \

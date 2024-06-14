@@ -1,46 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShruberryCreationForm.cpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:28:09 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/20 20:35:53 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:15:48 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShruberryCreationForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 /* Constructors & Destructors */
-ShruberryCreationForm::ShruberryCreationForm(void): AForm("ShruberryCreationForm", 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm(void): AForm("ShrubberyCreationForm", 145, 137) {
 	this->_target = "unidentified";
-	std::cout << BGRN "[ShruberryCreationForm] " CRESET "New object with target '" BCYN << \
+	std::cout << BGRN "[ShrubberyCreationForm] " CRESET "New object with target '" BCYN << \
 		this->_target << CRESET "'..." << std::endl;
 }
 
-ShruberryCreationForm::ShruberryCreationForm(std::string target): AForm("ShruberryCreationForm", 145, 137) {
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 145, 137) {
 	this->_target = target;
-	std::cout << BGRN "[ShruberryCreationForm] " CRESET "New object with target '" BCYN << \
+	std::cout << BGRN "[ShrubberyCreationForm] " CRESET "New object with target '" BCYN << \
 		this->_target << CRESET "'..." << std::endl;
 }
 
-ShruberryCreationForm::ShruberryCreationForm(ShruberryCreationForm const &shruberryCreationForm): AForm(shruberryCreationForm) {
-	*this = shruberryCreationForm;
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &shrubberyCreationForm): AForm(shrubberyCreationForm) {
+	*this = shrubberyCreationForm;
 }
 
-ShruberryCreationForm::~ShruberryCreationForm(void) {
-	std::cout << BRED "[ShruberryCreationForm] " CRESET "Deleting object with target '" BCYN << \
+ShrubberyCreationForm::~ShrubberyCreationForm(void) {
+	std::cout << BRED "[ShrubberyCreationForm] " CRESET "Deleting object with target '" BCYN << \
 		this->_target << CRESET "'..." << std::endl;
 }
 
 /* Functions */
-void	ShruberryCreationForm::executeRequirements(Bureaucrat const &executor) const {
+void	ShrubberyCreationForm::executeRequirements(Bureaucrat const &executor) const {
 	std::string		fileName = this->_target + "_shruberry";
 	std::ofstream	outfile(fileName.c_str());
 	
 	if (!outfile.is_open()) {
-		std::cout << BYEL "[ShruberryCreationForm] " CRESET "An error occured while creating outfile." << std::endl;
+		std::cout << BYEL "[ShrubberyCreationForm] " CRESET "An error occured while creating outfile." << std::endl;
 		return ;
 	}
 	outfile << "	           ,@@@@@@@," << std::endl;
@@ -58,8 +58,8 @@ void	ShruberryCreationForm::executeRequirements(Bureaucrat const &executor) cons
 }
 
 /* Overloaded operators */
-ShruberryCreationForm	&ShruberryCreationForm::operator=(const ShruberryCreationForm &shruberryCreationForm) {
-	if (this != &shruberryCreationForm)
-		this->_target = shruberryCreationForm._target;
+ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationForm &shrubberyCreationForm) {
+	if (this != &shrubberyCreationForm)
+		this->_target = shrubberyCreationForm._target;
 	return (*this);
 }

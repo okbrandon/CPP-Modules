@@ -6,16 +6,16 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:06:49 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/11/21 11:24:45 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/06/14 14:16:36 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "ShruberryCreationForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-void	testShruberry(void) {
+void	testShrubbery(void) {
 	std::cout << BWHT "\n>>> RUNNING SHRUBERRY-CREATION TESTS\n" CRESET << std::endl;
 	/* Creating needed bureau */
 	Bureaucrat	goodBureau("Good Bureau", 136);
@@ -26,7 +26,7 @@ void	testShruberry(void) {
 	std::cout << BWHT << "-------" << CRESET << std::endl;
 	try {
 		std::cout << BWHT "[!] Good bureau will try to sign and execute the form." CRESET << std::endl;
-		ShruberryCreationForm	form("goodForm");
+		ShrubberyCreationForm	form("goodForm");
 
 		goodBureau.signForm(form);
 		goodBureau.executeForm(form);
@@ -39,7 +39,7 @@ void	testShruberry(void) {
 	std::cout << BWHT << "-------" << CRESET << std::endl;
 	try {
 		std::cout << BWHT "[!] Bad sign bureau will try to sign and execute the form." CRESET << std::endl;
-		ShruberryCreationForm	form("badSignForm");
+		ShrubberyCreationForm	form("badSignForm");
 
 		badSignBureau.signForm(form);
 		badSignBureau.executeForm(form);
@@ -52,7 +52,7 @@ void	testShruberry(void) {
 	std::cout << BWHT << "-------" << CRESET << std::endl;
 	try {
 		std::cout << BWHT "[!] Bad exec bureau will try to sign and execute the form." CRESET << std::endl;
-		ShruberryCreationForm	form("badExecForm");
+		ShrubberyCreationForm	form("badExecForm");
 
 		badExecBureau.signForm(form);
 		badExecBureau.executeForm(form);
@@ -170,7 +170,7 @@ void	testPresidential(void) {
 
 int	main(void)
 {
-	testShruberry();
+	testShrubbery();
 	testRobotomy();
 	testPresidential();
 
