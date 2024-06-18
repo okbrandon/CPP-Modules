@@ -6,7 +6,7 @@
 /*   By: bsoubaig <bsoubaig@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 18:02:48 by bsoubaig          #+#    #+#             */
-/*   Updated: 2023/12/19 16:06:54 by bsoubaig         ###   ########.fr       */
+/*   Updated: 2024/06/18 17:31:49 by bsoubaig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ScalarConverter::_printChar(std::string &literal) {
 	char	c = _toChar(literal);
 	double	d = _toDouble(literal);
 
-	if (d > CHAR_MAX || d < CHAR_MIN || _isNan(literal))
+	if (d > CHAR_MAX || d < -CHAR_MAX || _isNan(literal))
 		std::cout << "char: impossible" << std::endl;
 	else if (!std::isprint(static_cast<unsigned char>(d)))
 		std::cout << "char: Non displayable" << std::endl;
@@ -66,7 +66,7 @@ void	ScalarConverter::_printInt(std::string &literal) {
 	int		i = _toInt(literal);
 	double	d = _toDouble(literal);
 	
-	if (d > INT_MAX || d < INT_MIN || _isNan(literal))
+	if (d > INT_MAX || d < -INT_MAX || _isNan(literal))
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << i << std::endl;
@@ -76,7 +76,7 @@ void	ScalarConverter::_printFloat(std::string &literal) {
 	float	f = _toFloat(literal);
 
 	if (!_isNan(literal)) {
-		if (f > FLT_MAX || f < FLT_MIN) {
+		if (f > FLT_MAX || f < -FLT_MAX) {
 			std::cout << "float: impossible" << std::endl;
 		} else {
 			if (f == (int)f)
@@ -87,7 +87,7 @@ void	ScalarConverter::_printFloat(std::string &literal) {
 		return ;
 	}
 	/* Pseudo literal */
-	if (!literal.substr(literal.size() - 1).compare("f"))
+	if (!literal.substr(literal.size() - 2).compare("ff"))
 		std::cout << "float: " << literal << std::endl;
 	else
 		std::cout << "float: " << literal << "f" << std::endl;
@@ -98,7 +98,7 @@ void	ScalarConverter::_printDouble(std::string &literal) {
 	double	d = _toDouble(literal);
 
 	if (!_isNan(literal)) {
-		if (d >= DBL_MAX || d < DBL_MIN) {
+		if (d >= DBL_MAX || d <= -DBL_MAX) {
 			std::cout << "double: impossible" << std::endl;
 		} else {
 			if (f == (int)f)
@@ -109,7 +109,7 @@ void	ScalarConverter::_printDouble(std::string &literal) {
 		return ;
 	}
 	/* Pseudo literal */
-	if (!literal.substr(literal.size() - 1).compare("f"))
+	if (!literal.substr(literal.size() - 2).compare("ff"))
 		std::cout << "double: " << literal.substr(0, literal.size() - 1) << std::endl;
 	else
 		std::cout << "double: " << literal << std::endl;
